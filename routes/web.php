@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -25,10 +26,21 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'isAdmin'])->group(function() {
-    Route::get('/home', [DashboardController::class, 'index'])->name('adminHome');
+    //Route::get('/home', [DashboardController::class, 'index'])->name('adminHome');
     
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    //--------Categories---------
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+    // Add Category
+    Route::get('/add-category', [CategoryController::class, 'create'])->name('add-category');
+    Route::post('/insert-category', [CategoryController::class, 'store'])->name('insert-category');
+    // Edit Category (with url())
+    Route::get('/edit-category/{id}', [CategoryController::class, 'edit']);
+    Route::put('/update-category/{id}', [CategoryController::class, 'update']);
+    Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
+
+    //--------Images---------
     Route::get('/images', [ImageController::class, 'index'])->name('images');
     // Upload image
     Route::get('/upload-image', [ImageController::class, 'create'])->name('upload-image');

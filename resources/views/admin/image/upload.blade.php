@@ -23,9 +23,11 @@
                 <!-- Category -->
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">Category</label>
-                    <select name="category" class="form-select">
-                        <option selected disabled>Select Category</option>
-                        <option value="family">Family</option>
+                    <select name="cat_id" class="form-select">
+                        <option selected disabled>Select a Category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
 

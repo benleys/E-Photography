@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Image;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -27,7 +28,9 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('admin.image.upload');
+        // Fill the 'Category'-dropdown
+        $categories = Category::all();
+        return view('admin.image.upload', compact('categories'));
     }
 
     /**
@@ -47,9 +50,10 @@ class ImageController extends Controller
             $image->image = $filename;
         }
 
-        $image->title = $request->input('title');
-        $image->category = $request->input('category');
-        $image->description = $request->input('description');
+        $image->cat_id = explode('|', $request->input('cat_id'))[0];
+        $image->title = ucfirst($request->input('title'));
+        $image->category = explode('|', $request->input('cat_id'))[1];
+        $image->description = ucfirst($request->input('description'));
         $image->save();
         return redirect('/images')->with('status', 'Image added successfully!');
     }
@@ -74,7 +78,8 @@ class ImageController extends Controller
     public function edit($id)
     {
         $images = Image::find($id);
-        return view('admin.image.edit', compact('images'));
+        $categories = Category::all();
+        return view('admin.image.edit', compact('images', 'categories'));
     }
 
     /**
@@ -99,9 +104,10 @@ class ImageController extends Controller
             $images->image = $filename;
         }
 
-        $images->title = $request->input('title');
-        $images->category = $request->input('category');
-        $images->description = $request->input('description');
+        $images->cat_id = explode('|', $request->input('cat_id'))[0];
+        $images->title = ucfirst($request->input('title'));
+        $images->category = explode('|', $request->input('cat_id'))[1];
+        $images->description = ucfirst($request->input('description'));
         $images->update();
         return redirect('/images')->with('status', 'Image updated successfully!');
     }

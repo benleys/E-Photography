@@ -14,6 +14,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Cate_Id</th>
                         <th>Title</th>
                         <th>Image</th>
                         <th>Category</th>
@@ -25,6 +26,7 @@
                     @foreach ($images as $image)
                         <tr>
                             <td>{{ $image->id }}</td>
+                            <td>{{ $image->cat_id }}</td>
                             <td>{{ $image->title }}</td>
                             <td>
                                 <img src="{{ asset('assets/uploads/image/'.$image->image) }}" class="img-responsive" style="max-width:200px;  width:100%;" alt="Image placed here">
