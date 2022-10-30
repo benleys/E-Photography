@@ -36,4 +36,5 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
     // Edit image (with url())
     Route::get('/edit-image/{id}', [ImageController::class, 'edit']);
     Route::put('/update-image/{id}', [ImageController::class, 'update']);
+    Route::get('/delete-image/{id}', [ImageController::class, 'destroy']);
 });

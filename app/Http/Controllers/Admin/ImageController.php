@@ -114,6 +114,14 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $images = Image::find($id);
+        if($images->image){
+            $filepath = 'assets/uploads/image/'.$images->image;
+            if(File::exists($filepath)){
+                File::delete($filepath);
+            }
+        }
+        $images->delete();
+        return redirect('/images')->with('status', 'Image deleted successfully!');
     }
 }

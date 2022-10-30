@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if (session('status'))
+        <h6 class="alert alert-success">{{ session('status') }}</h6>
+    @endif
     <div class="card overflow-auto" style="width: 100%;">
         <div class="card-header">
             <h1>Images</h1>
@@ -30,7 +33,7 @@
                             <td>{{ $image->description }}</td>
                             <td>
                                 <a href="{{ url('edit-image/'.$image->id) }}" class="btn btn-primary">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <a href="{{ url('delete-image/'.$image->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach
