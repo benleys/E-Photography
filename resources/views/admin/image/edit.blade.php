@@ -27,7 +27,7 @@
 
                 <!-- Category -->
                 <div class="col-md-12 mt-3">
-                    <label class="font-weight-bold">Category</label>
+                    <label class="font-weight-bold">Category <h6 style="color: red;">(Check if it is still correct)</h6></label>
                     <select name="cat_id" class="form-select">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
