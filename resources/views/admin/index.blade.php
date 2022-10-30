@@ -8,7 +8,7 @@
     
     <div class="card">
         <div class="card-header">
-            <h1>Dit werkt!</h1>
+            <h1>Dashboard</h1>
         </div>
     </div>
 @endsection

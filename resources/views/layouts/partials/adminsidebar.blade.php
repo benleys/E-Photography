@@ -6,6 +6,7 @@
             <span>Dashboard</span> 
          </a>
       </li>
+      <li class="nav-heading">Images</li>
       <li class="nav-item"> 
          <a class="nav-link collapsed" href="{{ route('images') }}"> 
             <i class="bi bi-image"></i> 
@@ -18,6 +19,7 @@
             <span>Upload Image</span> 
          </a>
       </li>
+      <li class="nav-heading">Categories</li>
        <li class="nav-item"> 
          <a class="nav-link collapsed" href="#"> 
             <i class="bi bi-question-circle"></i> 

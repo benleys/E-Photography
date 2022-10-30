@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class ImageController extends Controller
 {
@@ -15,7 +16,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return view('admin.image.index');
+        $images = Image::all();
+        return view('admin.image.index', compact('images'));
     }
 
     /**
@@ -49,7 +51,7 @@ class ImageController extends Controller
         $image->category = $request->input('category');
         $image->description = $request->input('description');
         $image->save();
-        return redirect('/dashboard')->with('status', 'Image added successfully!');
+        return redirect('/images')->with('status', 'Image added successfully!');
     }
 
     /**
@@ -71,7 +73,8 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $images = Image::find($id);
+        return view('admin.image.edit', compact('images'));
     }
 
     /**
@@ -83,7 +86,24 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $images = Image::find($id);
+        if($request->hasFile('image')){
+            $filepath = 'assets/uploads/image/'.$images->image;
+            if(File::exists($filepath)){
+                File::delete($filepath);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('assets/uploads/image', $filename);
+            $images->image = $filename;
+        }
+
+        $images->title = $request->input('title');
+        $images->category = $request->input('category');
+        $images->description = $request->input('description');
+        $images->update();
+        return redirect('/images')->with('status', 'Image updated successfully!');
     }
 
     /**

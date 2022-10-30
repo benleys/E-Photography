@@ -30,6 +30,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     Route::get('/images', [ImageController::class, 'index'])->name('images');
+    // Upload image
     Route::get('/upload-image', [ImageController::class, 'create'])->name('upload-image');
     Route::post('/insert-image', [ImageController::class, 'store'])->name('insert-image');
+    // Edit image (with url())
+    Route::get('/edit-image/{id}', [ImageController::class, 'edit']);
+    Route::put('/update-image/{id}', [ImageController::class, 'update']);
 });
