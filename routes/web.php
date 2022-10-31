@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -39,6 +40,16 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
     
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    //--------Images---------
+    Route::get('/images', [ImageController::class, 'index'])->name('images');
+    // Upload image
+    Route::get('/upload-image', [ImageController::class, 'create'])->name('upload-image');
+    Route::post('/insert-image', [ImageController::class, 'store'])->name('insert-image');
+    // Edit image (with url())
+    Route::get('/edit-image/{id}', [ImageController::class, 'edit']);
+    Route::put('/update-image/{id}', [ImageController::class, 'update']);
+    Route::get('/delete-image/{id}', [ImageController::class, 'destroy']);
+
     //--------Categories---------
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     // Add Category
@@ -49,13 +60,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
     Route::put('/update-category/{id}', [CategoryController::class, 'update']);
     Route::get('/delete-category/{id}', [CategoryController::class, 'destroy']);
 
-    //--------Images---------
-    Route::get('/images', [ImageController::class, 'index'])->name('images');
-    // Upload image
-    Route::get('/upload-image', [ImageController::class, 'create'])->name('upload-image');
-    Route::post('/insert-image', [ImageController::class, 'store'])->name('insert-image');
-    // Edit image (with url())
-    Route::get('/edit-image/{id}', [ImageController::class, 'edit']);
-    Route::put('/update-image/{id}', [ImageController::class, 'update']);
-    Route::get('/delete-image/{id}', [ImageController::class, 'destroy']);
+    //--------Users---------
+    Route::get('/users', [UserController::class, 'index'])->name('users');
+    // Add User
+    Route::get('/add-user', [UserController::class, 'create'])->name('add-user');
+    Route::post('/insert-user', [UserController::class, 'store'])->name('insert-user');
+    // Edit User (with url())
+    Route::get('/edit-user/{id}', [UserController::class, 'edit']);
+    Route::put('/update-user/{id}', [UserController::class, 'update']);
+    Route::get('/delete-user/{id}', [UserController::class, 'destroy']);
 });

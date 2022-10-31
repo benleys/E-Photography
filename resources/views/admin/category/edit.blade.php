@@ -7,15 +7,15 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h1>Add Category</h1>
+            <h1>Edit Category</h1>
         </div>
         <div class="card-body">
             <form action="{{ url('update-category/'.$categories->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
-                <!-- Title -->
+                <!-- Name -->
                 <div class="col-md-12 mt-3">
-                    <label for="title">Name</label>
+                    <label for="name">Name</label>
                     <input type="text" value="{{ $categories->name }}" class="form-control" name='name'>
                 </div>
 

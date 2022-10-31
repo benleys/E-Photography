@@ -22,14 +22,27 @@
       <li class="nav-heading">Categories</li>
       <li class="nav-item"> 
          <a class="nav-link {{ Request::is('categories') ? '':'collapsed' }}" href="{{ route('categories') }}"> 
-            <i class="bi bi-image"></i> 
+            <i class="bi bi-bookmark-check"></i> 
             <span>Categories</span> 
          </a>
       </li>
        <li class="nav-item"> 
          <a class="nav-link {{ Request::is('add-category') ? '':'collapsed' }}" href="{{ route('add-category') }}"> 
-            <i class="bi bi-images"></i> 
+            <i class="bi bi-bookmarks-fill"></i> 
             <span>Add Category</span> 
+         </a>
+      </li>
+      <li class="nav-heading">Users</li>
+      <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('users') ? '':'collapsed' }}" href="{{ route('users') }}"> 
+            <i class="bi bi-person-lines-fill"></i> 
+            <span>Users</span> 
+         </a>
+      </li>
+       <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('add-user') ? '':'collapsed' }}" href="{{ route('add-user') }}"> 
+            <i class="bi bi-person-plus-fill"></i> 
+            <span>Add User</span> 
          </a>
       </li>
     </ul>

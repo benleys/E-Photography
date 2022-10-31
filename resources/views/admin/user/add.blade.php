@@ -1,27 +1,33 @@
 @extends('layouts.admin')
 
 @section('title')
-    Add Category - Luc Leys
+    Add User - Luc Leys
 @endsection
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h1>Add Category</h1>
+            <h1>Add User</h1>
         </div>
         <div class="card-body">
-            <form action="{{ route('insert-category') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('insert-user') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <!-- Name -->
+                <!-- Title -->
                 <div class="col-md-12 mt-3">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" name='name'>
                 </div>
 
-                <!-- Description -->
+                <!-- Email -->
                 <div class="col-md-12 mt-3">
-                    <label class="font-weight-bold">Description</label>
-                    <textarea class="form-control" name="description" cols="30" rows="10"></textarea>
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name='email'>
+                </div>
+
+                <!-- Admin -->
+                <div class="col-md-12 mt-3">
+                    <label for="admin">Admin</label>
+                    <input type="checkbox" name='admin'>
                 </div>
 
                 <!-- Upload button -->
