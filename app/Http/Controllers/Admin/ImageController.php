@@ -99,7 +99,7 @@ class ImageController extends Controller
             }
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
+            $filename = $images->image;
             $file->move('assets/uploads/image', $filename);
             $images->image = $filename;
         }

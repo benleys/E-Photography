@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    Images - Luc Leys
+@endsection
+
 @section('content')
     @if (session('status'))
         <h6 class="alert alert-success">{{ session('status') }}</h6>

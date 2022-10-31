@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    Edit Image - Luc Leys
+@endsection
+
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -27,7 +31,7 @@
 
                 <!-- Category -->
                 <div class="col-md-12 mt-3">
-                    <label class="font-weight-bold">Category <h6 style="color: red;">(Check if it is still correct)</h6></label>
+                    <label class="font-weight-bold">Category <h6 style="color: red;">(Check if this is still correct)</h6></label>
                     <select name="cat_id" class="form-select">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
