@@ -13,6 +13,14 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                @auth
+                    @if (Auth::user()->user_type == '1')
+                        <ul class="navbar-nav me-auto">
+                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        </ul>
+                    @endif
+                @endauth
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
@@ -59,11 +67,7 @@
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ url('my-profile') }}">
                                         My Profile
                                     </a>
                                 </li>

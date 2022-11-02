@@ -30,7 +30,7 @@
                     <input type="checkbox" name='admin'>
                 </div>
 
-                <!-- Upload button -->
+                <!-- Add button -->
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-outline-primary">Add</button>
                 </div>

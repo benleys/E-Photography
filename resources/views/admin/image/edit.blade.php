@@ -21,12 +21,12 @@
 
                 <!-- Image Upload -->
                 <div class="col-md-12 mt-3">
+                <label class="font-weight-bold">Image</label>
                 @if ($images->image)
                     <img src="{{ asset('assets/uploads/image/'.$images->image) }}" class="img-responsive" style="max-width:300px;  width:100%;" alt="Image placed here">
                 @endif
                 <br>
-                    <label class="font-weight-bold">Image</label>
-                    <input type="file" name="image" class="img-responsive">
+                    <input class="col-md-12 mt-3" type="file" name="image" class="img-responsive">
                 </div>
 
                 <!-- Category -->

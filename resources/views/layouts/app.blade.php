@@ -60,11 +60,9 @@
 
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">
-                                                My Profile
-                                            </a>
-                                        </div>
+                                        <a class="dropdown-item" href="#">
+                                            My Profile
+                                        </a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"

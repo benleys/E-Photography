@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\UserController as FrontUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,15 @@ use App\Http\Controllers\Frontend\FrontendController;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
-Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
-
 Auth::routes();
 
+//------------------------------------------GUEST------------------------------------------
+Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
+
+//------------------------------------------USER------------------------------------------
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/my-profile', [FrontUserController::class, 'index'])->name('my-profile');
+Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name('update-my-profile');
 
 
 

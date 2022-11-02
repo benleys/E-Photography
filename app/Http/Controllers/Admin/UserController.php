@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -92,8 +93,8 @@ class UserController extends Controller
             }
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
-            $filename = $users->image;
-            $file->move('assets/uploads/image', $filename);
+            $filename = time().'.'.$extension;
+            $file->move('assets/uploads/profile-image', $filename);
             $users->image = $filename;
         }
         $users->name = $request->input('name');

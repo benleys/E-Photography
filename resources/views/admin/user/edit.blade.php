@@ -21,12 +21,12 @@
 
                 <!-- Profile-Image Upload -->
                     <div class="col-md-12 mt-3">
+                        <label class="font-weight-bold">Image</label>
                         @if ($users->image)
                                 <img src="{{ asset('assets/uploads/profile-image/'.$users->image) }}" class="img-responsive" style="max-width:300px;  width:100%;" alt="Image placed here">
                         @endif
                         <br>
-                        <label class="font-weight-bold">Image</label>
-                        <input type="file" name="image" class="img-responsive">
+                        <input class="col-md-12 mt-3" type="file" name="image" class="img-responsive">
                     </div>
 
                 <!-- Email -->
@@ -41,7 +41,7 @@
                     <input type="checkbox" {{ $users->user_type == "1" ? 'checked':'' }} name='admin'>
                 </div>
 
-                <!-- Upload button -->
+                <!-- Update button -->
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-outline-primary">Update</button>
                 </div>

@@ -24,7 +24,7 @@
                     <textarea class="form-control" name="description" cols="30" rows="10"></textarea>
                 </div>
 
-                <!-- Upload button -->
+                <!-- Add button -->
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-outline-primary">Add</button>
                 </div>

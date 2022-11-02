@@ -6,6 +6,12 @@
             <span>Dashboard</span> 
          </a>
       </li>
+      <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('home') ? '':'collapsed' }}" href="{{ route('home') }}"> 
+            <i class="bi bi-box-arrow-up-right"></i> 
+            <span>Go to Website</span> 
+         </a>
+      </li>
       <li class="nav-heading">Images</li>
       <li class="nav-item"> 
          <a class="nav-link {{ Request::is('images') ? '':'collapsed' }}" href="{{ route('images') }}"> 

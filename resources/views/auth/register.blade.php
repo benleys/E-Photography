@@ -24,7 +24,7 @@
                          </span>
                      @enderror
 
-                         <div class="invalid-feedback">Please, enter your name!</div>
+                         <!--<div class="invalid-feedback">Please, enter your name!</div>-->
                       </div>
                       
                       <div class="col-12">
@@ -36,7 +36,8 @@
                              <strong>{{ $message }}</strong>
                          </span>
                      @enderror
-                         <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+
+                         <!--<div class="invalid-feedback">Please enter a valid Email adddress!</div>-->
                       </div>
 
                       <div class="col-12">
@@ -48,13 +49,21 @@
                              <strong>{{ $message }}</strong>
                          </span>
                      @enderror
-                         <div class="invalid-feedback">Please enter your password!</div>
+
+                         <!--<div class="invalid-feedback">Please enter your password!</div>-->
                       </div>
 
                       <div class="col-12">
                         <label for="password_confirmation" class="form-label">Confirm Password</label> 
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        <div class="invalid-feedback">Please enter your password a second time!</div>
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                     @enderror
+                     
+                        <!--<div class="invalid-feedback">Please enter your password a second time!</div>-->
                      </div>
                       
                       <div class="col-12">

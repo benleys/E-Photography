@@ -25,7 +25,7 @@
                     <textarea class="form-control" name="description" cols="30" rows="10">{{ $categories->description }}</textarea>
                 </div>
 
-                <!-- Upload button -->
+                <!-- Update button -->
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-outline-primary">Update</button>
                 </div>
