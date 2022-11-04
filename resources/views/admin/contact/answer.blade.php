@@ -29,7 +29,7 @@
                 <!-- Answer -->
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">Answer</label>
-                    <textarea class="form-control" name="answer" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="answer" cols="30" rows="10">{{ $messages->answer }}</textarea>
                 </div>
 
                 <!-- Send button -->

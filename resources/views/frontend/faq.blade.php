@@ -9,13 +9,28 @@
     <hr>
 
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h1>Who am I?</h1>
+        <div id="accordion">
+            @foreach ($faqcategories as $faqcategory)
+            <div class="card">
+
+              <div class="card-header" id="{{ 'heading'.$faqcategory->name }}">
+                <h4 class="mb-0" data-bs-toggle="collapse" data-bs-target="{{ '#collapse'.$faqcategory->name }}" aria-expanded="true" aria-controls="{{ 'collapse'.$faqcategory->name }}">
+                    {{ $faqcategory->name }}
+                </h4>
+              </div>
+
+              @foreach ($faqs as $faq)
+                @if ($faq->faqcat_id == $faqcategory->id)
+                    <div id="{{ 'collapse'.$faqcategory->name }}" class="collapse" aria-labelledby="{{ 'heading'.$faqcategory->name }}" data-bs-parent="#accordion">
+                        <div class="card-body">
+                            <a href="#">{{ $faq->question }}</a>
+                        </div>
+                    </div>
+                @endif
+              @endforeach
+
             </div>
-            <div class="card-body">
-                <h5>Hello</h5>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

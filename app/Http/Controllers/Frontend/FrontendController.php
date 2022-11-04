@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Contact;
 use App\Models\Category;
+use App\Models\FaqCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -52,7 +54,9 @@ class FrontendController extends Controller
 
     public function faqs()
     {
-        return view('frontend.faq');
+        $faqs = Faq::all();
+        $faqcategories = FaqCategory::all();
+        return view('frontend.faq', compact('faqs', 'faqcategories'));
     }
 
     /**
