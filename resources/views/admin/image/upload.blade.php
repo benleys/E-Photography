@@ -41,6 +41,12 @@
                     <textarea class="form-control" name="description" cols="30" rows="10"></textarea>
                 </div>
 
+                <!-- Spotlight -->
+                <div class="col-md-12 mt-3">
+                    <label for="spotlight">Spotlight</label>
+                    <input type="checkbox" name='spotlight'>
+                </div>
+
                 <!-- Upload button -->
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-outline-primary">Upload</button>

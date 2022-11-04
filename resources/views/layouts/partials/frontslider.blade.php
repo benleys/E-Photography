@@ -6,10 +6,10 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('assets/uploads/image/1667222457.jpg') }}" class="d-block w-100" alt="...">
+        <img src="{{ asset('assets/uploads/image/1667222422.jpg') }}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('assets/uploads/image/1667222457.jpg') }}" class="d-block w-100" alt="...">
+        <img src="{{ asset('assets/uploads/image/1667222436.jpg') }}" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
         <img src="{{ asset('assets/uploads/image/1667222457.jpg') }}" class="d-block w-100" alt="...">
@@ -24,4 +24,3 @@
       <span class="visually-hidden">Next</span>
     </button>
 </div>
-  

@@ -23,8 +23,23 @@
 <body>
     @include('layouts.partials.frontnav')
     
-    <div class="content">
+    <div class="contents">
+        
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if (session('badstatus'))
+                <div class="alert alert-warning" role="alert">
+                    {{ session('badstatus') }}
+                </div>
+            @endif
+
         @yield('content')
+        
     </div>
 
     @include('layouts.partials.adminfooter')

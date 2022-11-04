@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('category');
             $table->longtext('description');
+            $table->tinyInteger('spotlight')->default('0');
             $table->timestamps();
         });
     }

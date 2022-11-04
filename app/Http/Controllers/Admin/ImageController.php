@@ -54,6 +54,7 @@ class ImageController extends Controller
         $image->title = ucfirst($request->input('title'));
         $image->category = explode('|', $request->input('cat_id'))[1];
         $image->description = ucfirst($request->input('description'));
+        $image->spotlight = $request->input('spotlight') == TRUE ? '1':'0';
         $image->save();
         return redirect('/images')->with('status', 'Image added successfully!');
     }
@@ -108,6 +109,7 @@ class ImageController extends Controller
         $images->title = ucfirst($request->input('title'));
         $images->category = explode('|', $request->input('cat_id'))[1];
         $images->description = ucfirst($request->input('description'));
+        $images->spotlight = $request->input('spotlight') == TRUE ? '1':'0';
         $images->update();
         return redirect('/images')->with('status', 'Image updated successfully!');
     }

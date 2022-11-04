@@ -45,6 +45,12 @@
                     <textarea class="form-control" name="description" cols="30" rows="10">{{ $images->description }}</textarea>
                 </div>
 
+                <!-- Spotlight -->
+                <div class="col-md-6 mt-3">
+                    <label for="spotlight">Spotlight</label>
+                    <input type="checkbox" {{ $images->spotlight == "1" ? 'checked':'' }} name='spotlight'>
+                </div>
+
                 <!-- Upload button -->
                 <div class="col-md-12 mt-3">
                     <button type="submit" class="btn btn-outline-primary">Upload</button>

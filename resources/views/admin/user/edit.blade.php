@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Admin -->
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mt-3">
                     <label for="admin">Admin</label>
                     <input type="checkbox" {{ $users->user_type == "1" ? 'checked':'' }} name='admin'>
                 </div>

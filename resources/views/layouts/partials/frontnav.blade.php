@@ -3,9 +3,9 @@
         <div class="container">
 
             <div class="d-flex justify-content-center py-4"> 
-                <a href="{{ url('/') }}" class="logo d-flex align-items-center"> 
-                     <!-- <img src="frontend/img/cameralogo.png" alt="">  -->
-                    <span class="d-none d-lg-block">Luc Leys</span> 
+                <a href="{{ url('/') }}" class="d-flex align-items-center"> 
+                    <img src="{{ asset('frontend/img/lucleyslogo.png') }}" height="50" alt="Luc Leys Logo">
+                    <img src="frontend/img/cameralogo.png" height="30" alt="">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -25,6 +25,15 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('#') }}">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('#') }}">About me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('#') }}">Contact</a>
+                    </li>
                         @if (Route::has('login'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -38,26 +47,19 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            @if (Route::has('login'))
-                                @auth
-                                    <a class="nav-link" href="{{ url('/home') }}">Home</a>
-                                @else
-                                    <a class="nav-link" href="{{ route('login') }}">Log in</a>
-        
-                                    @if (Route::has('register'))
-                                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                                    @endif
-                                @endauth
-                        @endif
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('#') }}">Gallery</a>
+                            <a class="nav-link" href="{{ url('#') }}">Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('#') }}">About me</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('#') }}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link bi bi-cart-fill" href="{{ url('#') }}">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link bi bi-heart-fill" href="{{ url('#') }}">Wishlist</a>
                         </li>
                         <li class="nav-item dropdown">
 

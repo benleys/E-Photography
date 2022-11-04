@@ -7,7 +7,7 @@
          </a>
       </li>
       <li class="nav-item"> 
-         <a class="nav-link {{ Request::is('home') ? '':'collapsed' }}" href="{{ route('home') }}"> 
+         <a class="nav-link {{ Request::is('/') ? '':'collapsed' }}" href="{{ route('frontindex') }}"> 
             <i class="bi bi-box-arrow-up-right"></i> 
             <span>Go to Website</span> 
          </a>

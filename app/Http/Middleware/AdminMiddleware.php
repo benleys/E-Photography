@@ -21,10 +21,10 @@ class AdminMiddleware
             if(Auth::user()->user_type == '1') {
                 return $next($request);
             } else {
-                return redirect('/home')->with('badstatus', 'Access Denied! You are not an admin');
+                return redirect('/')->with('badstatus', 'Access Denied! You are not an admin');
             }
         } else {
-            return redirect('/home')->with('badstatus', 'Please login first');
+            return redirect('/')->with('badstatus', 'Please login first');
         }
     } //Source: fundaofwebit.com
 }

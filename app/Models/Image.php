@@ -21,5 +21,6 @@ class Image extends Model
         'image',
         'category',
         'description',
+        'spotlight',
     ];
 }

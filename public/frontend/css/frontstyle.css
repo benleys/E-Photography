@@ -4,6 +4,10 @@
 :root {
 	scroll-behavior: smooth;
   }
+
+  * {
+	box-sizing: border-box;
+  }
   
   body {
 	font-family: "Open Sans", sans-serif;
@@ -12,8 +16,9 @@
   }
   
   a {
-	color: #717ff5;
+	color: black;
 	text-decoration: none;
+	margin: 0;
   }
   
   a:hover {
@@ -21,7 +26,20 @@
 	text-decoration: none;
   }
 
+  p {
+	font-size: 14px;
+	padding: 2px 2px;
+	margin: 0;
+  }
+
+  small {
+	float: right;
+	font-size: 10px;
+	color: grey;
+  }
+
   h1, h2, h3, h4, h5, h6 {
+	margin: 0;
 	font-family: "Nunito", sans-serif;
   }
 
@@ -129,28 +147,57 @@
 	font-family: "Poppins", sans-serif;
 	font-size: 20px;
   }
+
+  /*--------------------------------------------------------------
+  # Photobox
+  --------------------------------------------------------------*/
+  /*
+  .responsive {
+	padding: 0;
+	float: left;
+	width: 24.99999%;
+  }*/
+  
+  .col-md-3 .card {
+	transition: 0.5s;
+  }
+
+  .col-md-3 .card:hover {
+	background-color: white;
+	z-index: 1;
+	transform: scale(1.25);
+	box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  /*
+  .gallery .box .boximg img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+  }
+  
+  @media only screen and (max-width: 700px) {
+	.responsive {
+	  width: 49.99999%;
+	  margin: 6px 0;
+	}
+  }
+  
+  @media only screen and (max-width: 500px) {
+	.responsive {
+	  width: 100%;
+	}
+  }
+  
+  .clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+  }*/
   
   /*--------------------------------------------------------------
   # Header
   --------------------------------------------------------------*/
-  .logo {
-	line-height: 1;
-  }
-  @media (min-width: 1200px) {
-	.logo {
-	  width: 280px;
-	}
-  }
-  .logo img {
-	max-height: 26px;
-	margin-right: 6px;
-  }
-  .logo span {
-	font-size: 24px;
-	font-weight: 700;
-	color: #012970;
-	font-family: "Nunito", sans-serif;
-  }
   
   .header {
 	transition: all 0.5s;

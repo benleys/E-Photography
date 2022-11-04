@@ -36,7 +36,11 @@
                             </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->email_verified_at }}</td>
-                            <td>{{ $user->user_type }}</td>
+                            @if ( $user->user_type == '1')
+                                <td>Admin</td>
+                            @else
+                                <td>User</td>
+                            @endif
                             <td>
                                 <a href="{{ url('edit-user/'.$user->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ url('delete-user/'.$user->id) }}" class="btn btn-danger">Delete</a>

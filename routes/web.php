@@ -33,11 +33,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/my-profile', [FrontUserController::class, 'index'])->name('my-profile');
 Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name('update-my-profile');
 
-
-
-
-
-
 //------------------------------------------ADMIN------------------------------------------
 Route::middleware(['auth', 'isAdmin'])->group(function() {
     //Route::get('/home', [DashboardController::class, 'index'])->name('adminHome');

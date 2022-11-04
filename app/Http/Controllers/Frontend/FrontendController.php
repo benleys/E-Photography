@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Image;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FrontendController extends Controller
 {
@@ -14,7 +16,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $images = Image::all();
+        $spotlight_images = Image::where('spotlight', '1')->take(9)->get();
+        return view('frontend.index', compact('images', 'spotlight_images'));
     }
 
     /**

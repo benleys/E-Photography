@@ -23,6 +23,7 @@
                         <th>Image</th>
                         <th>Category</th>
                         <th>Description</th>
+                        <th>Spotlight</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -37,6 +38,13 @@
                             </td>
                             <td>{{ $image->category }}</td>
                             <td>{{ $image->description }}</td>
+
+                            @if ( $image->spotlight == '1')
+                                <td>Yes</td>
+                            @else
+                                <td>No</td>
+                            @endif
+                            
                             <td>
                                 <a href="{{ url('edit-image/'.$image->id) }}" class="btn btn-primary">Edit</a>
                                 <a href="{{ url('delete-image/'.$image->id) }}" class="btn btn-danger">Delete</a>
