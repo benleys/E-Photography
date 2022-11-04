@@ -39,6 +39,7 @@ Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name(
 Route::get('/portfolio', [FrontUserController::class, 'portfolio'])->name('portfolio');
 Route::get('/aboutme', [FrontUserController::class, 'aboutme'])->name('aboutme');
 Route::get('/contact', [FrontUserController::class, 'contact'])->name('contact');
+Route::get('/faqs', [FrontUserController::class, 'faqs'])->name('faqs');
 
 //------------------------------------------ADMIN------------------------------------------
 Route::middleware(['auth', 'isAdmin'])->group(function() {

@@ -34,6 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('contact') }}">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('faqs') }}">FAQ</a>
+                    </li>
                         @if (Route::has('login'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -56,6 +59,9 @@
                             <a class="nav-link" href="{{ url('contact') }}">Contact</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ url('faq') }}">FAQ</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link bi bi-cart-fill" href="{{ url('#') }}">Cart</a>
                         </li>
                         <li class="nav-item">
@@ -68,6 +74,10 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-header">
+                                    <img src="{{ asset('assets/uploads/profile-image/'.Auth::user()->image) }}" alt="Profile" class="rounded-circle" width="100" height="110">
+                                 </li>
+
                                 <li>
                                     <a class="dropdown-item" href="{{ url('my-profile') }}">
                                         My Profile

@@ -37,6 +37,11 @@ class UserController extends Controller
         return view('frontend.contact');
     }
 
+    public function faqs()
+    {
+        return view('frontend.faq');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
