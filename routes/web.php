@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqCategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\UserController as FrontUserController;
 
@@ -68,4 +70,24 @@ Route::middleware(['auth', 'isAdmin'])->group(function() {
     Route::get('/edit-user/{id}', [UserController::class, 'edit']);
     Route::put('/update-user/{id}', [UserController::class, 'update']);
     Route::get('/delete-user/{id}', [UserController::class, 'destroy']);
+
+    //--------FAQ Categories---------
+    Route::get('/faqcategories', [FaqCategoryController::class, 'index'])->name('faqcategories');
+    // Add FAQ Category
+    Route::get('/add-faqcategory', [FaqCategoryController::class, 'create'])->name('add-faqcategory');
+    Route::post('/insert-faqcategory', [FaqCategoryController::class, 'store'])->name('insert-faqcategory');
+    // Edit FAQ Category (with url())
+    Route::get('/edit-faqcategory/{id}', [FaqCategoryController::class, 'edit']);
+    Route::put('/update-faqcategory/{id}', [FaqCategoryController::class, 'update']);
+    Route::get('/delete-faqcategory/{id}', [FaqCategoryController::class, 'destroy']);
+
+    //--------FAQ---------
+    Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+    // Add FAQ Category
+    Route::get('/add-faq', [FaqController::class, 'create'])->name('add-faq');
+    Route::post('/insert-faq', [FaqController::class, 'store'])->name('insert-faq');
+    // Edit FAQ Category (with url())
+    Route::get('/edit-faq/{id}', [FaqController::class, 'edit']);
+    Route::put('/update-faq/{id}', [FaqController::class, 'update']);
+    Route::get('/delete-faq/{id}', [FaqController::class, 'destroy']);
 });

@@ -12,6 +12,8 @@
             <span>Go to Website</span> 
          </a>
       </li>
+
+      <!-- Images -->
       <li class="nav-heading">Images</li>
       <li class="nav-item"> 
          <a class="nav-link {{ Request::is('images') ? '':'collapsed' }}" href="{{ route('images') }}"> 
@@ -25,6 +27,8 @@
             <span>Upload Image</span> 
          </a>
       </li>
+
+      <!-- Categories -->
       <li class="nav-heading">Categories</li>
       <li class="nav-item"> 
          <a class="nav-link {{ Request::is('categories') ? '':'collapsed' }}" href="{{ route('categories') }}"> 
@@ -38,10 +42,12 @@
             <span>Add Category</span> 
          </a>
       </li>
+
+      <!-- Users -->
       <li class="nav-heading">Users</li>
       <li class="nav-item"> 
          <a class="nav-link {{ Request::is('users') ? '':'collapsed' }}" href="{{ route('users') }}"> 
-            <i class="bi bi-person-lines-fill"></i> 
+            <i class="bi bi-person-check"></i> 
             <span>Users</span> 
          </a>
       </li>
@@ -49,6 +55,27 @@
          <a class="nav-link {{ Request::is('add-user') ? '':'collapsed' }}" href="{{ route('add-user') }}"> 
             <i class="bi bi-person-plus-fill"></i> 
             <span>Add User</span> 
+         </a>
+      </li>
+
+      <!-- FAQ -->
+      <li class="nav-heading">FAQ</li>
+      <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('faq') ? '':'collapsed' }}" href="{{ route('faq') }}"> 
+            <i class="bi bi-question-circle"></i> 
+            <span>FAQ</span> 
+         </a>
+      </li>
+      <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('add-faq') ? '':'collapsed' }}" href="{{ route('add-faq') }}"> 
+            <i class="bi bi-question-circle-fill"></i> 
+            <span>Add FAQ</span> 
+         </a>
+      </li>
+       <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('add-faqcategory') ? '':'collapsed' }}" href="{{ route('add-faqcategory') }}"> 
+            <i class="bi bi-question-octagon-fill"></i> 
+            <span>Add FAQ Category</span> 
          </a>
       </li>
     </ul>
