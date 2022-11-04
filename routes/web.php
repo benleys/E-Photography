@@ -32,8 +32,13 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
 
 //------------------------------------------USER------------------------------------------
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/my-profile', [FrontUserController::class, 'index'])->name('my-profile');
+
+Route::get('/my-profile', [FrontUserController::class, 'myprofile'])->name('my-profile');
 Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name('update-my-profile');
+
+Route::get('/portfolio', [FrontUserController::class, 'portfolio'])->name('portfolio');
+Route::get('/aboutme', [FrontUserController::class, 'aboutme'])->name('aboutme');
+Route::get('/contact', [FrontUserController::class, 'contact'])->name('contact');
 
 //------------------------------------------ADMIN------------------------------------------
 Route::middleware(['auth', 'isAdmin'])->group(function() {

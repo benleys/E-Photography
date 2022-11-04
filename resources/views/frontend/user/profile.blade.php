@@ -9,9 +9,13 @@
     @if (session('status'))
     <h6 class="alert alert-success">{{ session('status') }}</h6>
 @endif
+
+    <h1 class="mt-3" style="text-align: center;">My Profile</h1>
+    <hr>
+
     <div class="card">
         <div class="card-header">
-            <h1>My Profile Page</h1>
+            <h1>Edit Profile</h1>
         </div>
         <div class="card-body">
             <form action="{{ url('update-my-profile') }}" method="post" enctype="multipart/form-data">

@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    Welcome to Luc Leys
+    Portfolio - Luc Leys
 @endsection
 
 @section('content')

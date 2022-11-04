@@ -26,13 +26,13 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('#') }}">Portfolio</a>
+                        <a class="nav-link" href="{{ url('portfolio') }}">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('#') }}">About me</a>
+                        <a class="nav-link" href="{{ url('aboutme') }}">About me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('#') }}">Contact</a>
+                        <a class="nav-link" href="{{ url('contact') }}">Contact</a>
                     </li>
                         @if (Route::has('login'))
                             <li class="nav-item">
@@ -47,13 +47,13 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('#') }}">Portfolio</a>
+                            <a class="nav-link" href="{{ url('portfolio') }}">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('#') }}">About me</a>
+                            <a class="nav-link" href="{{ url('aboutme') }}">About me</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('#') }}">Contact</a>
+                            <a class="nav-link" href="{{ url('contact') }}">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link bi bi-cart-fill" href="{{ url('#') }}">Cart</a>

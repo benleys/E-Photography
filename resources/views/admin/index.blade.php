@@ -12,6 +12,8 @@
             <h2>Welcome, {{ Auth::user()->name }}!</h2>
             <p>Please go to <img src="admin\img\tutorial.png" alt="Tutorial Image"></p>
             <p>Here you will find everything you need to make your website at its <span style="color:rgb(235, 206, 16)">best</span>!</p>
+            <hr>
+            <h1>Contact Messages</h1>
         </div>
     </div>
 @endsection

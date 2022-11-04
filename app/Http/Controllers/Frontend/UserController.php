@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\User;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,25 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function myprofile()
     {
         return view('frontend.user.profile');
+    }
+
+    public function portfolio()
+    {
+        $images = Image::all();
+        return view('frontend.portfolio', compact('images'));
+    }
+
+    public function aboutme()
+    {
+        return view('frontend.aboutme');
+    }
+
+    public function contact()
+    {
+        return view('frontend.contact');
     }
 
     /**
