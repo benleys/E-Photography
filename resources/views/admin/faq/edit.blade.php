@@ -21,10 +21,13 @@
 
                 <!-- FAQCategory -->
                 <div class="col-md-12 mt-3">
-                    <label class="font-weight-bold">FAQ Category <h6 style="color: red;">(Check if this is still correct)</h6></label>
+                    <label class="font-weight-bold">FAQ Category</label>
                     <select name="faqcat_id" class="form-select">
+                        <option selected>{{ $faqs->faqcategory }}</option>
                         @foreach ($faqcategories as $faqcategory)
+                            @if ($faqcategory->name != $faqs->faqcategory)
                             <option value="{{ $faqcategory->id }}|{{ $faqcategory->name }}">{{ $faqcategory->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -32,7 +35,7 @@
                 <!-- Answer -->
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">Answer</label>
-                    <textarea class="form-control" name="answer" cols="30" rows="10">{{ $faqcategories->answer }}</textarea>
+                    <textarea class="form-control" name="answer" cols="30" rows="10">{{ $faqs->answer }}</textarea>
                 </div>
 
                 <!-- Upload button -->

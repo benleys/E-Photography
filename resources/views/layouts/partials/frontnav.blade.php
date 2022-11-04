@@ -17,7 +17,7 @@
                 @auth
                     @if (Auth::user()->user_type == '1')
                         <ul class="navbar-nav me-auto">
-                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                            <li><a href="{{ route('images') }}">Dashboard</a></li>
                         </ul>
                     @endif
                 @endauth
@@ -35,7 +35,7 @@
                         <a class="nav-link" href="{{ url('contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('faqs') }}">FAQ</a>
+                        <a class="nav-link" href="{{ url('faq-q&a') }}">FAQ</a>
                     </li>
                         @if (Route::has('login'))
                             <li class="nav-item">
@@ -59,7 +59,7 @@
                             <a class="nav-link" href="{{ url('contact') }}">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('faq') }}">FAQ</a>
+                            <a class="nav-link" href="{{ url('faq-q&a') }}">FAQ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link bi bi-cart-fill" href="{{ url('#') }}">Cart</a>

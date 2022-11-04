@@ -31,10 +31,13 @@
 
                 <!-- Category -->
                 <div class="col-md-12 mt-3">
-                    <label class="font-weight-bold">Category <h6 style="color: red;">(Check if this is still correct)</h6></label>
+                    <label class="font-weight-bold">Category</label>
                     <select name="cat_id" class="form-select">
+                        <option selected>{{ $images->category }}</option>
                         @foreach ($categories as $category)
+                            @if ($category->name != $images->category)
                             <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>

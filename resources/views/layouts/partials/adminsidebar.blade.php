@@ -72,6 +72,12 @@
             <span>Add FAQ</span> 
          </a>
       </li>
+      <li class="nav-item"> 
+         <a class="nav-link {{ Request::is('faqcategories') ? '':'collapsed' }}" href="{{ route('faqcategories') }}"> 
+            <i class="bi bi-question-octagon"></i> 
+            <span>FAQ Categories</span> 
+         </a>
+      </li>
        <li class="nav-item"> 
          <a class="nav-link {{ Request::is('add-faqcategory') ? '':'collapsed' }}" href="{{ route('add-faqcategory') }}"> 
             <i class="bi bi-question-octagon-fill"></i> 

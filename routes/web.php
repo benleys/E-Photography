@@ -27,19 +27,20 @@ use App\Http\Controllers\Frontend\UserController as FrontUserController;
 });*/
 Auth::routes();
 
-//------------------------------------------GUEST------------------------------------------
-Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
-
 //------------------------------------------USER------------------------------------------
+Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
+Route::get('portfolio', [FrontendController::class, 'portfoliocategory'])->name('portfolio');
+Route::get('view-portfolio/{name}', [FrontendController::class, 'viewportfoliocategory'])->name('view-portfolio');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/my-profile', [FrontUserController::class, 'myprofile'])->name('my-profile');
 Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name('update-my-profile');
 
-Route::get('/portfolio', [FrontUserController::class, 'portfolio'])->name('portfolio');
-Route::get('/aboutme', [FrontUserController::class, 'aboutme'])->name('aboutme');
-Route::get('/contact', [FrontUserController::class, 'contact'])->name('contact');
-Route::get('/faqs', [FrontUserController::class, 'faqs'])->name('faqs');
+//Route::get('/portfolio', [FrontUserController::class, 'portfolio'])->name('portfolio');
+Route::get('/aboutme', [FrontendController::class, 'aboutme'])->name('aboutme');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/faq-q&a', [FrontendController::class, 'faqs'])->name('faq-q&a');
 
 //------------------------------------------ADMIN------------------------------------------
 Route::middleware(['auth', 'isAdmin'])->group(function() {

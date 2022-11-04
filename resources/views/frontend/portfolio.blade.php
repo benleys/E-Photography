@@ -5,6 +5,33 @@
 @endsection
 
 @section('content')
+    <h1 class="mt-3" style="text-align: center;">All Categories</h1>
+    <hr>
+
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        @foreach ($categories as $category)
+                            <a class="col-md-3" href="{{ 'view-portfolio/'.strtolower($category->name) }}">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2>{{ $category->name }}</h2>
+                                        <p>{{ $category->description }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- All Images -->
     <h1 class="mt-3" style="text-align: center;">Portfolio</h1>
     <hr>
 
@@ -15,11 +42,6 @@
                     <a class="col-md-3" href="{{ asset('assets/uploads/image/'.$image->image) }}">
                         <div class="card">
                             <img src="{{ asset('assets/uploads/image/'.$image->image) }}" alt="">
-                            <div class="card-body">
-                                <h2>{{ $image->title }}</h2>
-                                <p>{{ $image->description }}</p>
-                                <small>{{ date('d-m-Y', strtotime($image->updated_at)) }}</small>
-                            </div>
                         </div>
                     </a>
                 @endforeach

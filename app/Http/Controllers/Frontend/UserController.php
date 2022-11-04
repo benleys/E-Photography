@@ -21,27 +21,6 @@ class UserController extends Controller
         return view('frontend.user.profile');
     }
 
-    public function portfolio()
-    {
-        $images = Image::all();
-        return view('frontend.portfolio', compact('images'));
-    }
-
-    public function aboutme()
-    {
-        return view('frontend.aboutme');
-    }
-
-    public function contact()
-    {
-        return view('frontend.contact');
-    }
-
-    public function faqs()
-    {
-        return view('frontend.faq');
-    }
-
     /**
      * Show the form for creating a new resource.
      *

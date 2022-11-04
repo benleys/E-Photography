@@ -69,7 +69,7 @@ class FaqController extends Controller
     public function edit($id)
     {
         $faqs = Faq::find($id);
-        $faqcategories = Category::all();
+        $faqcategories = FaqCategory::all();
         return view('admin.faq.edit', compact('faqs', 'faqcategories'));
     }
 

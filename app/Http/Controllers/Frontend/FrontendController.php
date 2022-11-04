@@ -21,6 +21,39 @@ class FrontendController extends Controller
         return view('frontend.index', compact('images', 'spotlight_images'));
     }
 
+    public function portfoliocategory()
+    {
+        $images = Image::all();
+        $categories = Category::all();
+        return view('frontend.portfolio', compact('images', 'categories'));
+    }
+
+    public function viewportfoliocategory($name)
+    {
+        if(Category::where('name', $name)->exists()){
+            $category = Category::where('name', $name)->first();
+            $images = Image::where('cat_id', $category->id)->get();
+            return view('frontend.images.index', compact('category', 'images'));
+        } else {
+            return redirect('/')->with('badstatus', 'Category does not exist!');
+        }
+    }
+
+    public function aboutme()
+    {
+        return view('frontend.aboutme');
+    }
+
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
+
+    public function faqs()
+    {
+        return view('frontend.faq');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
