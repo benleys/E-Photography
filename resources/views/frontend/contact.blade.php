@@ -6,15 +6,11 @@
 
 @section('content')
 <div class="container">
-    @if (session('status'))
-    <h6 class="alert alert-success">{{ session('status') }}</h6>
-@endif
-
     <h1 class="mt-3" style="text-align: center;">Contact</h1>
     <p style="text-align: center;">Fill in the form to get further in touch</p>
     <hr>
 
-                <div class = "contact-middle">
+                <div class="contact-middle">
                     <div>
                         <span class="contact-icon">
                             <i class="bi bi-geo-alt-fill"></i>
@@ -56,70 +52,77 @@
                         <h1>Contact Me</h1>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('#') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('insert-message') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
-                        @auth
-                            <!-- Name -->
-                            <div class="col-md-12 mt-3">
-                                <label for="name">Your Name</label>
-                                <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name'>
-                            </div>
+                            @auth
+                                <!-- Hidden user_id -->
+                                <input hidden type="text" value="{{ Auth::user()->id }}" class="form-control" name='user_id'>
+                                
+                                <!-- Name -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name'>
+                                </div>
 
-                            <!-- Email -->
-                            <div class="col-md-12 mt-3">
-                                <label for="email">Your Email</label>
-                                <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email'>
-                            </div>
+                                <!-- Email -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="email">Your Email</label>
+                                    <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email'>
+                                </div>
 
-                            <!-- Subject -->
-                            <div class="col-md-12 mt-3">
-                                <label for="subject">Subject</label>
-                                <input type="text" class="form-control" name='subject'>
-                            </div>
+                                <!-- Subject -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" name='subject'>
+                                </div>
 
-                            <!-- Message -->
-                            <div class="col-md-12 mt-3">
-                                <label class="font-weight-bold">Message</label>
-                                <textarea class="form-control" name="message" cols="20" rows="4"></textarea>
-                            </div>
+                                <!-- Message -->
+                                <div class="col-md-12 mt-3">
+                                    <label class="font-weight-bold">Message</label>
+                                    <textarea class="form-control" name="message" cols="20" rows="4"></textarea>
+                                </div>
 
-                            <!-- Send Message button -->
-                            <div class="col-md-12 mt-3">
-                                <button type="submit" class="btn btn-light">Send Message</button>
-                            </div>
+                                <!-- Send Message button -->
+                                <div class="col-md-12 mt-3">
+                                    <button type="submit" class="btn btn-light">Send Message</button>
+                                </div> 
+                            @else
+                            @if (empty(Auth::user()->id))
+                                <!-- Hidden user_id -->
+                                <input hidden type="text" value="0" class="form-control" name='user_id'>
+                            @endif
+
+                                <!-- Name -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" name='name'>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="email">Your Email</label>
+                                    <input type="text" class="form-control" name='email'>
+                                </div>
+
+                                <!-- Subject -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" name='subject'>
+                                </div>
+
+                                <!-- Message -->
+                                <div class="col-md-12 mt-3">
+                                    <label class="font-weight-bold">Message</label>
+                                    <textarea class="form-control" name="message" cols="20" rows="4"></textarea>
+                                </div>
+
+                                <!-- Send Message button -->
+                                <div class="col-md-12 mt-3">
+                                    <button type="submit" class="btn btn-light">Send Message</button>
+                                </div>
+                            @endauth
                         </form> 
-                        @else
-                            <!-- Name -->
-                            <div class="col-md-12 mt-3">
-                                <label for="name">Your Name</label>
-                                <input type="text" class="form-control" name='name'>
-                            </div>
-
-                            <!-- Email -->
-                            <div class="col-md-12 mt-3">
-                                <label for="email">Your Email</label>
-                                <input type="text" class="form-control" name='email'>
-                            </div>
-
-                            <!-- Subject -->
-                            <div class="col-md-12 mt-3">
-                                <label for="subject">Subject</label>
-                                <input type="text" class="form-control" name='subject'>
-                            </div>
-
-                            <!-- Message -->
-                            <div class="col-md-12 mt-3">
-                                <label class="font-weight-bold">Message</label>
-                                <textarea class="form-control" name="message" cols="20" rows="4"></textarea>
-                            </div>
-
-                            <!-- Send Message button -->
-                            <div class="col-md-12 mt-3">
-                                <button type="submit" class="btn btn-light">Send Message</button>
-                            </div>
-                        </form> 
-                        @endauth
                     </div>
                 </div>
 </div>

@@ -17,7 +17,7 @@
                 @auth
                     @if (Auth::user()->user_type == '1')
                         <ul class="navbar-nav me-auto">
-                            <li><a href="{{ route('images') }}">Dashboard</a></li>
+                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         </ul>
                     @endif
                 @endauth

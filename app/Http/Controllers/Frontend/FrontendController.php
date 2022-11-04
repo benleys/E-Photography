@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Image;
+use App\Models\Contact;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -72,7 +73,14 @@ class FrontendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = new Contact();
+        $message->user_id = $request->input('user_id');
+        $message->name = ucfirst($request->input('name'));
+        $message->email = $request->input('email');
+        $message->subject = ucfirst($request->input('subject'));
+        $message->message = ucfirst($request->input('message'));
+        $message->save();
+        return redirect('/contact')->with('status', 'Message successfully send!');
     }
 
     /**

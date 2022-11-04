@@ -6,10 +6,6 @@
 
 @section('content')
 <div class="container">
-    @if (session('status'))
-    <h6 class="alert alert-success">{{ session('status') }}</h6>
-@endif
-
     <h1 class="mt-3" style="text-align: center;">My Profile</h1>
     <hr>
 

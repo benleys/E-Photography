@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqCategoryController;
@@ -39,15 +40,24 @@ Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name(
 
 //Route::get('/portfolio', [FrontUserController::class, 'portfolio'])->name('portfolio');
 Route::get('/aboutme', [FrontendController::class, 'aboutme'])->name('aboutme');
+
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::post('/insert-message', [FrontendController::class, 'store'])->name('insert-message');
+
 Route::get('/faq-q&a', [FrontendController::class, 'faqs'])->name('faq-q&a');
 
 //------------------------------------------ADMIN------------------------------------------
 Route::middleware(['auth', 'isAdmin'])->group(function() {
     //Route::get('/home', [DashboardController::class, 'index'])->name('adminHome');
     
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    //Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    //--------Contact Messages---------
+    Route::get('/dashboard', [ContactController::class, 'index'])->name('dashboard');
+    Route::get('/answer-message/{id}', [ContactController::class, 'answer']);
+    Route::put('/answered-message/{id}', [ContactController::class, 'answered']);
+    Route::get('/delete-message/{id}', [ContactController::class, 'destroy']);
+
     //--------Images---------
     Route::get('/images', [ImageController::class, 'index'])->name('images');
     // Upload image
