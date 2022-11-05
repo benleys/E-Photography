@@ -5,7 +5,7 @@
             <div class="d-flex justify-content-center py-4"> 
                 <a href="{{ url('/') }}" class="d-flex align-items-center"> 
                     <img src="{{ asset('frontend/img/lucleyslogo.png') }}" height="50" alt="Luc Leys Logo">
-                    <img src="frontend/img/cameralogo.png" height="30" alt="">
+                    <img src="{{ asset('frontend/img/cameralogo.png') }}" height="30" alt="">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

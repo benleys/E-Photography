@@ -24,6 +24,7 @@
                     <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjvrIvpxZT7AhX3_rsIHWUuApwQFnoECBMQAQ&url=https%3A%2F%2Fwww.fundaofwebit.com%2F&usg=AOvVaw26BrluYnkZmzM2eMVxwNuo">fundaofwebit.com</a>
                     <a href="https://www.w3schools.com/">w3schools.com</a>
                     <a href="https://stackoverflow.com/">stackoverflow.com</a>
+                    https://laravel.com/
                 </p>
                 <h4>Templates:</h4>
                 <p>
