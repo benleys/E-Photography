@@ -51,7 +51,6 @@
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/validate.js') }}" defer></script>
     <script src="{{ asset('frontend/js/main.js') }}" defer></script>
-
-    @yield('scripts')
+    <script src="{{ asset('frontend/js/jquery.js') }}" defer></script>
 </body>
 </html>

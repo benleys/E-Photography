@@ -30,8 +30,8 @@
                             </div>
                             <div class="col-md-9">
                                 <br>
-                                <button class="btn btn-success me-3 addToWishlistBtn">Add to Wishlist <i class="bi bi-heart-fill"></i></button>
-                                <button class="btn btn-primary me-3 addToCartBtn">Add to Cart <i class="bi bi-cart-fill"></i></button>
+                                <button class="btn btn-success me-3 addToWishlistBtn"><i class="bi bi-heart-fill"></i> Add to Wishlist</button>
+                                <button class="btn btn-primary me-3 addToCartBtn"><i class="bi bi-cart-fill"></i> Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -39,34 +39,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-<script>
-    $(document).ready(function (){
-        
-        $('.addToCartBtn').click(function (e) { 
-            e.preventDefault();
-            
-            var image_id = $(this).closest('.image_data').find('.image_id').val();
-            
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            
-            $.ajax({
-                method: "POST",
-                url: "add-to-cart",
-                data: {
-                    'image_id': image_id
-                },
-                success: function (response) {
-                    alert(response.status);
-                }
-            });
-        });
-    })
-</script>
 @endsection

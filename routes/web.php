@@ -50,9 +50,10 @@ Route::get('/faq-q&a', [FrontendController::class, 'faqs'])->name('faq-q&a');
 
 //------------------------------------------USER(logged-in)------------------------------------------
 Route::post('/portfolio/add-to-cart', [CartController::class, 'store']);
+Route::post('/remove-from-cart', [CartController::class, 'destroy']);
 
 Route::middleware(['auth'])->group(function() {
-    
+    Route::get('view-cart', [CartController::class, 'index']);
 });
 
 //------------------------------------------ADMIN------------------------------------------

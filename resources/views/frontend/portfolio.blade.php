@@ -41,7 +41,7 @@
                 @foreach ($images as $image)
                     <a class="col-md-3" href="{{ url('portfolio/'.$image->image) }}">
                         <div class="card">
-                            <img src="{{ asset('assets/uploads/image/'.$image->image) }}" alt="">
+                            <img src="{{ asset('assets/uploads/image/'.$image->image) }}" alt="Image Here">
                         </div>
                     </a>
                 @endforeach

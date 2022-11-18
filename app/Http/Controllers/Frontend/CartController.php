@@ -17,7 +17,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $cartItems = Cart::where('user_id', Auth::id())->get();
+        return view('frontend.cart', compact('cartItems'));
     }
 
     /**
@@ -47,7 +48,7 @@ class CartController extends Controller
                 if(Cart::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
                     return response()->json(['status' => $checkImage->title." already added to cart!"]);
                 } else {
-                                        $cartItem = new Cart();
+                    $cartItem = new Cart();
                     $cartItem->user_id = Auth::id();
                     $cartItem->image_id = $image_id;
                     $cartItem->save();
@@ -96,11 +97,20 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        if(Auth::check()){
+            $image_id = $request->input('image_id');
+            if(Cart::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
+                $cartItem = Cart::where('image_id', $image_id)->where('user_id', Auth::id())->first();
+                $cartItem->delete();
+                return response()->json(['status' => "Removed item successfully"]);
+            }
+        } else {
+            return response()->json(['status' => "You need to login first!"]);
+        }
     }
 }
