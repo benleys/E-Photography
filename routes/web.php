@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqCategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\UserController as FrontUserController;
 
 /*
@@ -49,11 +50,17 @@ Route::post('/insert-contactmessage', [FrontendController::class, 'insertContact
 Route::get('/faq-q&a', [FrontendController::class, 'faqs'])->name('faq-q&a');
 
 //------------------------------------------USER(logged-in)------------------------------------------
+Route::post('/add-to-cart', [CartController::class, 'store']);
 Route::post('/portfolio/add-to-cart', [CartController::class, 'store']);
 Route::post('/remove-from-cart', [CartController::class, 'destroy']);
 
+Route::post('/portfolio/add-to-wishlist', [WishlistController::class, 'store']);
+Route::post('/remove-from-wishlist', [WishlistController::class, 'destroy']);
+
 Route::middleware(['auth'])->group(function() {
     Route::get('view-cart', [CartController::class, 'index']);
+
+    Route::get('view-wishlist', [WishlistController::class, 'index']);
 });
 
 //------------------------------------------ADMIN------------------------------------------

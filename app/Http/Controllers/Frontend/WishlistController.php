@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Cart;
 use App\Models\Image;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class CartController extends Controller
+class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cartItems = Cart::where('user_id', Auth::id())->get();
-        return view('frontend.cart', compact('cartItems'));
+        $wishlistItems = Wishlist::where('user_id', Auth::id())->get();
+        return view('Frontend.wishlist', compact('wishlistItems'));
     }
 
     /**
@@ -45,14 +45,14 @@ class CartController extends Controller
             $checkImage = Image::where('id', $image_id)->first();
 
             if($checkImage){
-                if(Cart::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
-                    return response()->json(['status' => $checkImage->title." already added to cart!"]);
+                if(Wishlist::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
+                    return response()->json(['status' => $checkImage->title." already added to wishlist!"]);
                 } else {
-                    $cartItem = new Cart();
-                    $cartItem->user_id = Auth::id();
-                    $cartItem->image_id = $image_id;
-                    $cartItem->save();
-                    return response()->json(['status' => $checkImage->title." added to cart!"]);
+                    $wishItem = new Wishlist();
+                    $wishItem->user_id = Auth::id();
+                    $wishItem->image_id = $image_id;
+                    $wishItem->save();
+                    return response()->json(['status' => $checkImage->title." added to wishlist!"]);
                 }
             }
         } else {
@@ -104,9 +104,9 @@ class CartController extends Controller
     {
         if(Auth::check()){
             $image_id = $request->input('image_id');
-            if(Cart::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
-                $cartItem = Cart::where('image_id', $image_id)->where('user_id', Auth::id())->first();
-                $cartItem->delete();
+            if(Wishlist::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
+                $wishlistItem = Cart::where('image_id', $image_id)->where('user_id', Auth::id())->first();
+                $wishlistItem->delete();
                 return response()->json(['status' => "Removed image successfully"]);
             }
         } else {
