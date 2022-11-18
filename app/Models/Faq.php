@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\FaqCategory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Faq extends Model
 {
@@ -21,4 +22,8 @@ class Faq extends Model
         'faqcategory',
         'answer',
     ];
+
+    public function faqcategoryKey(){
+        return $this->belongsTo(FaqCategory::class, 'faqcat_id', 'id');
+    }
 }

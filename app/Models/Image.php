@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Image extends Model
 {
@@ -23,4 +24,8 @@ class Image extends Model
         'description',
         'spotlight',
     ];
+
+    public function categoryKey(){
+        return $this->belongsTo(Category::class, 'cat_id', 'id');
+    }
 }
