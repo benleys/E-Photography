@@ -64,7 +64,7 @@ class FrontendController extends Controller
 
     public function insertContactMessage(Request $request)
     {
-        if(Auth::id()){
+        if(Auth::check()){
             $message = new Contact();
             $message->user_id = $request->input('user_id');
             $message->name = ucfirst($request->input('name'));

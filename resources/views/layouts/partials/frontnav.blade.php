@@ -62,10 +62,10 @@
                             <a class="nav-link" href="{{ url('faq-q&a') }}">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link bi bi-cart-fill" href="{{ url('#') }}">Cart</a>
+                            <a class="nav-link bi bi-cart-fill" href="{{ url('cart') }}">Cart</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link bi bi-heart-fill" href="{{ url('#') }}">Wishlist</a>
+                            <a class="nav-link bi bi-heart-fill" href="{{ url('wishlist') }}">Wishlist</a>
                         </li>
                         <li class="nav-item dropdown">
 

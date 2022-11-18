@@ -9,7 +9,7 @@
     <hr>
 
     <div class="container">
-        <div class="card shadow">
+        <div class="card shadow image_data">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 border-right">
@@ -25,10 +25,13 @@
                         <hr>
                         {{-- <label class="fw-bold">Selling Price: €{{ $images->price }}</label> --}}
                         <div class="row mt-2">
-                            <div class="col-md-10">
+                            <div class="col-md-3">
+                                <input type="hidden" value="{{ $images->id }}" class="image_id">
+                            </div>
+                            <div class="col-md-9">
                                 <br>
-                                <button class="btn btn-success me-3 float-start addToCartBtn">Add to Wishlist <i class="bi bi-heart-fill"></i></button>
-                                <button class="btn btn-primary me-3 float-start addToWishlistBtn">Add to Cart <i class="bi bi-cart-fill"></i></button>
+                                <button class="btn btn-success me-3 addToWishlistBtn">Add to Wishlist <i class="bi bi-heart-fill"></i></button>
+                                <button class="btn btn-primary me-3 addToCartBtn">Add to Cart <i class="bi bi-cart-fill"></i></button>
                             </div>
                         </div>
                     </div>
@@ -40,6 +43,30 @@
 
 @section('scripts')
 <script>
-    
+    $(document).ready(function (){
+        
+        $('.addToCartBtn').click(function (e) { 
+            e.preventDefault();
+            
+            var image_id = $(this).closest('.image_data').find('.image_id').val();
+            
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            $.ajax({
+                method: "POST",
+                url: "add-to-cart",
+                data: {
+                    'image_id': image_id
+                },
+                success: function (response) {
+                    alert(response.status);
+                }
+            });
+        });
+    })
 </script>
 @endsection

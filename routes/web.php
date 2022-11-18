@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqCategoryController;
@@ -30,9 +31,9 @@ Auth::routes();
 
 //------------------------------------------USER------------------------------------------
 Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
-Route::get('portfolio', [FrontendController::class, 'portfoliocategory'])->name('portfolio');
-Route::get('portfolio/{image}', [FrontendController::class, 'viewimage'])->name('view-image');
-Route::get('portfolio/view-portfolio/{name}', [FrontendController::class, 'viewportfoliocategory'])->name('view-portfolio');
+Route::get('/portfolio', [FrontendController::class, 'portfoliocategory'])->name('portfolio');
+Route::get('/portfolio/{image}', [FrontendController::class, 'viewimage'])->name('view-image');
+Route::get('/portfolio/view-portfolio/{name}', [FrontendController::class, 'viewportfoliocategory'])->name('view-portfolio');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -46,6 +47,13 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/insert-contactmessage', [FrontendController::class, 'insertContactMessage'])->name('insert-contactmessage');
 
 Route::get('/faq-q&a', [FrontendController::class, 'faqs'])->name('faq-q&a');
+
+//------------------------------------------USER(logged-in)------------------------------------------
+Route::post('/portfolio/add-to-cart', [CartController::class, 'store']);
+
+Route::middleware(['auth'])->group(function() {
+    
+});
 
 //------------------------------------------ADMIN------------------------------------------
 Route::middleware(['auth', 'isAdmin'])->group(function() {

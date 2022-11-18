@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Cart;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -35,7 +38,25 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image_id = $request->input('image_id');
+
+        if(Auth::check()){
+            $checkImage = Image::where('id', $image_id)->first();
+
+            if($checkImage){
+                if(Cart::where('image_id', $image_id)->where('user_id', Auth::id())->exists()){
+                    return response()->json(['status' => $checkImage->title." already added to cart!"]);
+                } else {
+                                        $cartItem = new Cart();
+                    $cartItem->user_id = Auth::id();
+                    $cartItem->image_id = $image_id;
+                    $cartItem->save();
+                    return response()->json(['status' => $checkImage->title." added to cart!"]);
+                }
+            }
+        } else {
+            return response()->json(['status' => "You need to login first!"]);
+        }
     }
 
     /**
