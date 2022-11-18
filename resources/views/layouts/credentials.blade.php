@@ -24,6 +24,21 @@
     @include('layouts.partials.frontnav')
     
     <div class="container">
+
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if (session('badstatus'))
+                <div class="alert alert-warning" role="alert">
+                    {{ session('badstatus') }}
+                </div>
+            @endif
+        </div>
+        
         <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
             <div class="container">
                <div class="row justify-content-center">

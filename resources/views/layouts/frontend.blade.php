@@ -19,6 +19,7 @@
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
     @include('layouts.partials.frontnav')
@@ -51,5 +52,6 @@
     <script src="{{ asset('frontend/js/validate.js') }}" defer></script>
     <script src="{{ asset('frontend/js/main.js') }}" defer></script>
 
+    @yield('scripts')
 </body>
 </html>

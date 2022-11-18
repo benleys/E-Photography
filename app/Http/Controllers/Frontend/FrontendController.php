@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -42,6 +43,15 @@ class FrontendController extends Controller
         }
     }
 
+    public function viewimage($image){
+        if(Image::where('image', $image)->exists()){
+            $images = Image::where('image', $image)->first();
+            return view('frontend.images.view', compact('images'));
+        } else {
+            return redirect('/')->with('status', 'No such image found!');
+        }
+    }
+
     public function aboutme()
     {
         return view('frontend.aboutme');
@@ -50,6 +60,22 @@ class FrontendController extends Controller
     public function contact()
     {
         return view('frontend.contact');
+    }
+
+    public function insertContactMessage(Request $request)
+    {
+        if(Auth::id()){
+            $message = new Contact();
+            $message->user_id = $request->input('user_id');
+            $message->name = ucfirst($request->input('name'));
+            $message->email = $request->input('email');
+            $message->subject = ucfirst($request->input('subject'));
+            $message->message = ucfirst($request->input('message'));
+            $message->save();
+            return redirect('/contact')->with('status', 'Message successfully send!');
+        } else {
+            return redirect('/login')->with('badstatus', 'You need to login first!');
+        }
     }
 
     public function faqs()
@@ -67,24 +93,6 @@ class FrontendController extends Controller
     public function create()
     {
         //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $message = new Contact();
-        $message->user_id = $request->input('user_id');
-        $message->name = ucfirst($request->input('name'));
-        $message->email = $request->input('email');
-        $message->subject = ucfirst($request->input('subject'));
-        $message->message = ucfirst($request->input('message'));
-        $message->save();
-        return redirect('/contact')->with('status', 'Message successfully send!');
     }
 
     /**

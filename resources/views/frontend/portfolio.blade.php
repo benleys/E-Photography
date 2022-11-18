@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         @foreach ($categories as $category)
-                            <a class="col-md-3" href="{{ 'view-portfolio/'.strtolower($category->name) }}">
+                            <a class="col-md-3" href="{{ 'portfolio/view-portfolio/'.strtolower($category->name) }}">
                                 <div class="card">
                                     <div class="card-body">
                                         <h2>{{ $category->name }}</h2>
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($images as $image)
-                    <a class="col-md-3" href="{{ asset('assets/uploads/image/'.$image->image) }}">
+                    <a class="col-md-3" href="{{ url('portfolio/'.$image->image) }}">
                         <div class="card">
                             <img src="{{ asset('assets/uploads/image/'.$image->image) }}" alt="">
                         </div>

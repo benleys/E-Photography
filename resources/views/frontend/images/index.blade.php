@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($images as $image)
-                    <a class="col-md-3" href="{{ asset('assets/uploads/image/'.$image->image) }}">
+                    <a class="col-md-3" href="{{ url('portfolio/'.$image->image) }}">
                         <div class="card">
                             <img src="{{ asset('assets/uploads/image/'.$image->image) }}" alt="">
                             <div class="card-body">

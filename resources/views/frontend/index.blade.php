@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($spotlight_images as $spotimg)
-                    <a class="col-md-3" href="{{ asset('assets/uploads/image/'.$spotimg->image) }}">
+                    <a class="col-md-3" href="{{ url('portfolio/'.$spotimg->image) }}">
                         <div class="card">
                             <img src="{{ asset('assets/uploads/image/'.$spotimg->image) }}" alt="">
                             <div class="card-body">

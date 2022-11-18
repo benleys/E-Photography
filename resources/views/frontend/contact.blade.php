@@ -52,7 +52,7 @@
                         <h1>Contact Me</h1>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('insert-message') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('insert-contactmessage') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             @auth
@@ -62,13 +62,13 @@
                                 <!-- Name -->
                                 <div class="col-md-12 mt-3">
                                     <label for="name">Your Name</label>
-                                    <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name'>
+                                    <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name' disabled>
                                 </div>
 
                                 <!-- Email -->
                                 <div class="col-md-12 mt-3">
                                     <label for="email">Your Email</label>
-                                    <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email'>
+                                    <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email' disabled>
                                 </div>
 
                                 <!-- Subject -->
