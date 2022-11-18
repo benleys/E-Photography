@@ -40,13 +40,17 @@
                         @foreach ($messages as $message)
                             <tr>
                                 <td>{{ $message->id }}</td>
-                                <td>{{ $message->user_id }}</td>
+                                @if ($message->user_id == '0')
+                                    <td>Guest</td>
+                                @else
+                                    <td>{{ $message->user_id }}</td>
+                                @endif
                                 <td>{{ $message->name }}</td>
                                 <td>{{ $message->email }}</td>
                                 <td>{{ $message->subject }}</td>
                                 <td>{{ $message->message }}</td>
                                 @if (empty($message->answer))
-                                    <td>Not answered</td>
+                                    <td style="color: gray">*Not answered yet*</td>
                                 @else
                                     <td>{{ $message->answer }}</td>
                                 @endif

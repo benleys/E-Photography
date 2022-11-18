@@ -36,7 +36,7 @@
                             <td>
                                 <img src="{{ asset('assets/uploads/image/'.$image->image) }}" class="img-responsive" style="max-width:200px;  width:100%;" alt="Image placed here">
                             </td>
-                            <td>{{ $image->category }}</td>
+                            <td>{{ $image->categoryKey->name }}</td>
                             <td>{{ $image->description }}</td>
 
                             @if ( $image->spotlight == '1')
