@@ -62,13 +62,13 @@
                                 <!-- Name -->
                                 <div class="col-md-12 mt-3">
                                     <label for="name">Your Name</label>
-                                    <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name' disabled>
+                                    <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name'>
                                 </div>
 
                                 <!-- Email -->
                                 <div class="col-md-12 mt-3">
                                     <label for="email">Your Email</label>
-                                    <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email' disabled>
+                                    <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email'>
                                 </div>
 
                                 <!-- Subject -->
@@ -81,6 +81,12 @@
                                 <div class="col-md-12 mt-3">
                                     <label class="font-weight-bold">Message</label>
                                     <textarea class="form-control" name="message" cols="20" rows="4"></textarea>
+                                </div>
+
+                                <!-- Publish -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="published">Publish<small class="mt-1">(visible for everyone in contact forum)</small></label>
+                                    <input type="checkbox" name='published'>
                                 </div>
 
                                 <!-- Send Message button -->
@@ -117,13 +123,80 @@
                                     <textarea class="form-control" name="message" cols="20" rows="4"></textarea>
                                 </div>
 
+                                <!-- Publish -->
+                                <div class="col-md-12 mt-3">
+                                    <label for="published">Publish<small class="mt-1">(visible for everyone in contact forum)</small></label>
+                                    <input type="checkbox" name='published'>
+                                </div>
+
                                 <!-- Send Message button -->
                                 <div class="col-md-12 mt-3">
                                     <button type="submit" class="btn btn-light">Send Message</button>
                                 </div>
                             @endauth
+                            <small style="color: red">**login required</small>
                         </form> 
                     </div>
                 </div>
-</div>
+    @auth
+    <h1 class="mt-3" style="text-align: center;">My Contact Forum</h1>
+    <p style="text-align: center;">Here you see all private messages</p>
+    <hr>
+    
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                @foreach ($messages as $message)
+                    @if (Auth::id() == $message->user_id)
+                        <a class="col-md-3" href="{{ url('#') }}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>{{ $message->name }}</h2>
+                                    <h5 style="margin: 0">Question: {{ $message->subject }}</h5>
+                                    <h5>Message: {{ $message->message }}</h5>
+                                    @if (empty($message->answer))
+                                        <h6>*Not answered yet</h6> 
+                                    @else
+                                        <h6 style="margin: 1vh">Answer: {{ $message->answer }}</h6>
+                                    @endif
+                                    <small>{{ date('d-m-Y', strtotime($message->updated_at)) }}</small>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @endauth
+    
+    <h1 class="mt-3" style="text-align: center;">Contact Forum</h1>
+    <p style="text-align: center;">Here you see all public messages</p>
+    <hr>
+    
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                @foreach ($messages as $message)
+                    @if ($message->published == '1')
+                        <a class="col-md-3" href="{{ url('#') }}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>{{ $message->name }}</h2>
+                                    <h5 style="margin: 0">Question: {{ $message->subject }}</h5>
+                                    <h5>Message: {{ $message->message }}</h5>
+                                    @if (empty($message->answer))
+                                        <h6>*Not answered yet</h6> 
+                                    @else
+                                        <h6 style="margin: 1vh">Answer: {{ $message->answer }}</h6>
+                                    @endif
+                                    <small>{{ date('d-m-Y', strtotime($message->updated_at)) }}</small>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
 @endsection

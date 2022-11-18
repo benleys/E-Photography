@@ -32,6 +32,7 @@
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Message</th>
+                            <th>Published</th>
                             <th>Answer</th>
                             <th>Action</th>
                         </tr>
@@ -49,6 +50,12 @@
                                 <td>{{ $message->email }}</td>
                                 <td>{{ $message->subject }}</td>
                                 <td>{{ $message->message }}</td>
+                                @if ($message->published == '1')
+                                    <td>Yes</td>
+                                @else
+                                    <td>No</td>
+                                @endif
+                                
                                 @if (empty($message->answer))
                                     <td style="color: gray">*Not answered yet*</td>
                                 @else

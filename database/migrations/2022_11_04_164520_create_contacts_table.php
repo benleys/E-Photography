@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('subject');
             $table->longtext('message');
             $table->longtext('answer');
+            $table->tinyInteger('published')->default('0');
             $table->timestamps();
         });
     }

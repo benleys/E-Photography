@@ -22,5 +22,6 @@ class Contact extends Model
         'subject',
         'message',
         'answer',
+        'published',
     ];
 }

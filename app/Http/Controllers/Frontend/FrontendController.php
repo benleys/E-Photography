@@ -59,7 +59,8 @@ class FrontendController extends Controller
 
     public function contact()
     {
-        return view('frontend.contact');
+        $messages = Contact::all();
+        return view('frontend.contact', compact('messages'));
     }
 
     public function insertContactMessage(Request $request)
@@ -71,6 +72,7 @@ class FrontendController extends Controller
             $message->email = $request->input('email');
             $message->subject = ucfirst($request->input('subject'));
             $message->message = ucfirst($request->input('message'));
+            $message->published = $request->input('published') == TRUE ? '1':'0';
             $message->save();
             return redirect('/contact')->with('status', 'Message successfully send!');
         } else {
