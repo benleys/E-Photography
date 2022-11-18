@@ -1,4 +1,7 @@
 $(document).ready(function (){
+
+    loadcart();
+    loadwishlist();
      
     //BUG -- NEEDS TO BE FIXED (IN WISHLIST)
     $('.addToCartBtn').click(function (e) { 
@@ -20,6 +23,7 @@ $(document).ready(function (){
             },
             success: function (response) {
                 alert(response.status);
+                loadcart();
             }
         });
     });
@@ -68,6 +72,7 @@ $(document).ready(function (){
             },
             success: function (response) {
                 alert(response.status);
+                loadwishlist();
             }
         });
     });
@@ -96,4 +101,26 @@ $(document).ready(function (){
             }
         });
     });
+
+    function loadcart(){
+        $.ajax({
+            method: "GET",
+            url: "load-cart-data",
+            success: function (response) {
+                $('.cartCount').html(response.count);
+                console.log(response.count);
+            }
+        });
+    } //Source: www.fundaofwebit.com
+
+    function loadwishlist(){
+        $.ajax({
+            method: "GET",
+            url: "load-wishlist-data",
+            success: function (response) {
+                $('.wishlistCount').html(response.count);
+                // console.log(response.count);
+            }
+        });
+    } //Source: www.fundaofwebit.com
 })

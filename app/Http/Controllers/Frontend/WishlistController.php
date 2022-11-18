@@ -113,4 +113,9 @@ class WishlistController extends Controller
             return response()->json(['status' => "You need to login first!"]);
         }
     }
+
+    public function wishlistcount(){
+        $wishlistcount = Wishlist::where('user_id', Auth::id())->count();
+        return response()->json(['count' => $wishlistcount]);
+    }
 }

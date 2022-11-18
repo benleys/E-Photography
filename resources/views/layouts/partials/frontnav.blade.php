@@ -62,10 +62,10 @@
                             <a class="nav-link" href="{{ url('faq-q&a') }}">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link bi bi-cart-fill" href="{{ url('view-cart') }}"> Cart</a>
+                            <a class="nav-link bi bi-cart-fill" href="{{ url('view-cart') }}"> Cart <span class="badge badge-pill bg-primary cartCount">0</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link bi bi-heart-fill" href="{{ url('view-wishlist') }}"> Wishlist</a>
+                            <a class="nav-link bi bi-heart-fill" href="{{ url('view-wishlist') }}"> Wishlist <span class="badge badge-pill bg-primary bg-success wishlistCount">0</span></a>
                         </li>
                         <li class="nav-item dropdown">
 

@@ -30,6 +30,10 @@ use App\Http\Controllers\Frontend\UserController as FrontUserController;
 });*/
 Auth::routes();
 
+Route::get('/load-cart-data', [CartController::class, 'cartcount']);
+Route::get('/portfolio/load-cart-data', [CartController::class, 'cartcount']);
+Route::get('/load-wishlist-data', [WishlistController::class, 'wishlistcount']);
+Route::get('/portfolio/load-wishlist-data', [WishlistController::class, 'wishlistcount']);
 //------------------------------------------USER------------------------------------------
 Route::get('/', [FrontendController::class, 'index'])->name('frontindex');
 Route::get('/portfolio', [FrontendController::class, 'portfoliocategory'])->name('portfolio');
