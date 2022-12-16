@@ -65,13 +65,20 @@ class FrontendController extends Controller
 
     public function insertContactMessage(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
         if(Auth::check()){
             $message = new Contact();
             $message->user_id = $request->input('user_id');
-            $message->name = ucfirst($request->input('name'));
-            $message->email = $request->input('email');
-            $message->subject = ucfirst($request->input('subject'));
-            $message->message = ucfirst($request->input('message'));
+            $message->name = ucfirst($validated['name']);
+            $message->email = $validated['email'];
+            $message->subject = ucfirst($validated['subject']);
+            $message->message = ucfirst($validated['message']);
             $message->published = $request->input('published') == TRUE ? '1':'0';
             $message->save();
             return redirect('/contact')->with('status', 'Message successfully send!');
