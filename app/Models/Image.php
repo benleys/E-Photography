@@ -20,7 +20,6 @@ class Image extends Model
         'cat_id',
         'title',
         'image',
-        'category',
         'description',
         'spotlight',
     ];

@@ -15,7 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $messages = Contact::all();
+        $messages = Contact::orderBy('answer')->get();
         return view('admin.index', compact('messages'));
     }
 

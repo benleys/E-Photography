@@ -32,6 +32,10 @@
                     <a href="https://freeetemplates.com/bootstrap-5-free-admin-dashboard-template-1/">freeetemplates.com</a>
                     <a href="https://github.com/prabinmagar/photography-site">prabinmagar/photography-site</a>
                 </p>
+                <h4>GitHub:</h4>
+                <p>
+                    <a href="https://github.com/benleys/E-Photography">github.com/benleys/E-Photography</a>
+                </p>
             </div>
         </div>
     </div>

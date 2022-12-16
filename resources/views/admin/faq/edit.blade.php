@@ -23,9 +23,9 @@
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">FAQ Category</label>
                     <select name="faqcat_id" class="form-select">
-                        <option value="{{ $faqs->faqcat_id }}|{{ $faqs->faqcategory }}" selected>{{ $faqs->faqcategory }}</option>
+                        <option value="{{ $faqs->faqcat_id }}|{{ $faqs->faqcategoryKey->name }}" selected>{{ $faqs->faqcategoryKey->name }}</option>
                         @foreach ($faqcategories as $faqcategory)
-                            @if ($faqcategory->name != $faqs->faqcategory)
+                            @if ($faqcategory->name != $faqs->faqcategoryKey->name)
                             <option value="{{ $faqcategory->id }}|{{ $faqcategory->name }}">{{ $faqcategory->name }}</option>
                             @endif
                         @endforeach

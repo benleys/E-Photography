@@ -33,9 +33,9 @@
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">Category</label>
                     <select name="cat_id" class="form-select">
-                        <option value="{{ $images->cat_id }}|{{ $images->category }}" selected>{{ $images->category }}</option>
+                        <option value="{{ $images->cat_id }}|{{ $images->categoryKey->name }}" selected>{{ $images->categoryKey->name }}</option>
                         @foreach ($categories as $category)
-                            @if ($category->name != $images->category)
+                            @if ($category->name != $images->categoryKey->name)
                             <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
                             @endif
                         @endforeach

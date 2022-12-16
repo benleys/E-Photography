@@ -31,7 +31,7 @@
                             <td>{{ $faq->id }}</td>
                             <td>{{ $faq->faqcat_id }}</td>
                             <td>{{ $faq->question }}</td>
-                            <td>{{ $faq->faqcategory }}</td>
+                            <td>{{ $faq->faqcategoryKey->name }}</td>
                             <td>{{ $faq->answer }}</td>
                             <td>
                                 <a href="{{ url('edit-faq/'.$faq->id) }}" class="btn btn-primary">Edit</a>

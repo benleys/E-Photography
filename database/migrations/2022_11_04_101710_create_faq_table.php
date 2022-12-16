@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('faqcat_id');
             $table->string('question');
-            $table->string('faqcategory');
             $table->longtext('answer');
             $table->timestamps();
         });
