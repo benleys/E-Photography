@@ -87,6 +87,21 @@ class FrontendController extends Controller
         }
     }
 
+    public function contactmessage($id){
+        $messages = Contact::find($id);
+        return view('frontend.contact.contactmessage', compact('messages'));
+    }
+
+    public function updateContactMessage(Request $request, $id) //UPDATE
+    {
+        $messages = Contact::find($id);
+        $messages->subject = ucfirst($request->input('subject'));
+        $messages->message = ucfirst($request->input('message'));
+        $messages->published = $request->input('published') == TRUE ? '1':'0';
+        $messages->update();
+        return redirect('/contact')->with('status', 'Contactmessage successfully updated!');
+    }
+
     public function faqs()
     {
         $faqs = Faq::all();
