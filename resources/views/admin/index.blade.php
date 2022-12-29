@@ -30,8 +30,8 @@
                             <th>User_Id</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Subject</th>
-                            <th>Message</th>
+                            {{-- <th>Subject</th>
+                            <th>Message</th> --}}
                             <th>Published</th>
                             <th>Answer</th>
                             <th>Action</th>
@@ -46,10 +46,10 @@
                                 @else
                                     <td>{{ $message->user_id }}</td>
                                 @endif
-                                <td>{{ $message->name }}</td>
-                                <td>{{ $message->email }}</td>
-                                <td>{{ $message->subject }}</td>
-                                <td>{{ $message->message }}</td>
+                                <td>{{ $message->userKey->name }}</td>
+                                <td>{{ $message->userKey->email }}</td>
+                                {{-- <td>{{ $message->subject }}</td>
+                                <td>{{ $message->message }}</td> --}}
                                 @if ($message->published == '1')
                                     <td>Yes</td>
                                 @else

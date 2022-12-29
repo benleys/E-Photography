@@ -75,8 +75,8 @@ class FrontendController extends Controller
         if(Auth::check()){
             $message = new Contact();
             $message->user_id = $request->input('user_id');
-            $message->name = ucfirst($validated['name']);
-            $message->email = $validated['email'];
+            // $message->name = ucfirst($validated['name']);
+            // $message->email = $validated['email'];
             $message->subject = ucfirst($validated['subject']);
             $message->message = ucfirst($validated['message']);
             $message->published = $request->input('published') == TRUE ? '1':'0';

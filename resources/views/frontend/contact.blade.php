@@ -151,7 +151,7 @@
                         <a class="col-md-3" href="{{ url('#') }}">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>{{ $message->name }}</h2>
+                                    <h2>{{ $message->userKey->name }} <small>m_id #{{ $message->id }}</small></h2>
                                     <h5 style="margin: 0">Question: {{ $message->subject }}</h5>
                                     <h5>Message: {{ $message->message }}</h5>
                                     @if (empty($message->answer))
@@ -182,7 +182,7 @@
                         <a class="col-md-3" href="{{ url('#') }}">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>{{ $message->name }} <small>id #{{ $message->id }}</small></h2>
+                                    <h2>{{ $message->userKey->name }} <small>m_id #{{ $message->id }}</small></h2>
                                     <h5 style="margin: 0">Question: {{ $message->subject }}</h5>
                                     <h5>Message: {{ $message->message }}</h5>
                                     @if (empty($message->answer))

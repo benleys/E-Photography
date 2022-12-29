@@ -11,6 +11,7 @@
     <div class="card overflow-auto" style="width: 100%;">
         <div class="card-header">
             <h1>Categories</h1>
+            <small>Remember to first check that all photos no longer contain the category you want to <span style="color: red">delete!</span></small>
         </div>
         <div class="card-body">
         @if ($categories->first())

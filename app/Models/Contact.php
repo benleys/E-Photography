@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Contact extends Model
 {
@@ -17,11 +18,13 @@ class Contact extends Model
      */
     protected $fillable = [
         'user_id',
-        'name',
-        'email',
         'subject',
         'message',
         'answer',
         'published',
     ];
+
+    public function userKey(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }
