@@ -27,7 +27,7 @@ class FrontendController extends Controller
 
     public function portfoliocategory()
     {
-        $images = Image::all();
+        $images = Image::orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         return view('frontend.portfolio', compact('images', 'categories'));
     }
@@ -99,7 +99,7 @@ class FrontendController extends Controller
         $messages->message = ucfirst($request->input('message'));
         $messages->published = $request->input('published') == TRUE ? '1':'0';
         $messages->update();
-        return redirect('/contact')->with('status', 'Contactmessage successfully updated!');
+        return redirect('/contact')->with('status', 'Message successfully updated!');
     }
 
     public function faqs()

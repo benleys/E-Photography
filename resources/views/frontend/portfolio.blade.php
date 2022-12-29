@@ -8,6 +8,7 @@
     <h1 class="mt-3" style="text-align: center;">All Categories</h1>
     <hr>
 
+    <!-- All Categories -->
     <div class="py-2">
         <div class="container">
             <div class="row">

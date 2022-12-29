@@ -34,6 +34,9 @@
                                 <button class="btn btn-primary me-3 addToCartBtn"><i class="bi bi-cart-fill"></i> Add to Cart</button>
                             </div>
                         </div>
+                        <small style="float: right">Created at: {{ date('d-m-Y'), strtotime($images->created_at) }}</small>
+                        <br>
+                        <small style="float: right">Updated at: {{ \Carbon\Carbon::parse($images->updated_at)->diffForHumans() }}</small>
                     </div>
                 </div>
             </div>

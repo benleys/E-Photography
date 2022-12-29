@@ -159,7 +159,7 @@
                                         <h6>Answer: {{ $message->answer }}</h6>
                                     @endif
                                     <small style="margin-top: 20px; float: left">{{ $message->userKey->name }}</small>
-                                    <small style="margin-top: 20px; float: right">{{ date('d-m-Y', strtotime($message->updated_at)) }}</small>
+                                    <small style="margin-top: 20px; float: right">{{ \Carbon\Carbon::parse($message->updated_at)->diffForHumans() }}</small>
                                 </div>
                             </div>
                         </a>
@@ -190,7 +190,7 @@
                                         <h6>Answer: {{ $message->answer }}</h6>
                                     @endif
                                     <small style="margin-top: 20px; float: left">{{ $message->userKey->name }}</small>
-                                    <small style="margin-top: 20px; float: right">{{ date('d-m-Y', strtotime($message->updated_at)) }}</small>
+                                    <small style="margin-top: 20px; float: right">{{ \Carbon\Carbon::parse($message->updated_at)->diffForHumans() }}</small>
                                 </div>
                             </div>
                         </a>
