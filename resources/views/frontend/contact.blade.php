@@ -125,7 +125,7 @@
 
                                 <!-- Publish -->
                                 <div class="col-md-12 mt-3">
-                                    <label for="published">Publish<small class="mt-1">(visible for everyone in contact forum)</small></label>
+                                    <label for="published">Publish<small class="mt-1">(might be useful for everyone in contact forum)</small></label>
                                     <input type="checkbox" name='published'>
                                 </div>
 
@@ -182,7 +182,7 @@
                         <a class="col-md-3" href="{{ url('#') }}">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2>{{ $message->name }} <small>#{{ $message->id }}</small></h2>
+                                    <h2>{{ $message->name }} <small>id #{{ $message->id }}</small></h2>
                                     <h5 style="margin: 0">Question: {{ $message->subject }}</h5>
                                     <h5>Message: {{ $message->message }}</h5>
                                     @if (empty($message->answer))

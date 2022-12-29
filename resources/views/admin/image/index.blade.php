@@ -18,10 +18,9 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Cate_Id</th>
+                        <th>Category</th>
                         <th>Title</th>
                         <th>Image</th>
-                        <th>Category</th>
                         <th>Description</th>
                         <th>Spotlight</th>
                         <th>Action</th>
@@ -31,12 +30,11 @@
                     @foreach ($images as $image)
                         <tr>
                             <td>{{ $image->id }}</td>
-                            <td>{{ $image->cat_id }}</td>
+                            <td>{{ $image->categoryKey->name }}</td>
                             <td>{{ $image->title }}</td>
                             <td>
                                 <img src="{{ asset('assets/uploads/image/'.$image->image) }}" class="img-responsive" style="max-width:200px;  width:100%;" alt="Image placed here">
                             </td>
-                            <td>{{ $image->categoryKey->name }}</td>
                             <td>{{ $image->description }}</td>
 
                             @if ( $image->spotlight == '1')

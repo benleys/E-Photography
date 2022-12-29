@@ -18,10 +18,8 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>FAQ Cat_Id</th>
-                        <th>Question</th>
                         <th>FAQ Category</th>
-                        <th>Answer</th>
+                        <th>Question</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -29,9 +27,8 @@
                     @foreach ($faqs as $faq)
                         <tr>
                             <td>{{ $faq->id }}</td>
-                            <td>{{ $faq->faqcat_id }}</td>
-                            <td>{{ $faq->question }}</td>
                             <td>{{ $faq->faqcategoryKey->name }}</td>
+                            <td>{{ $faq->question }}</td>
                             <td>{{ $faq->answer }}</td>
                             <td>
                                 <a href="{{ url('edit-faq/'.$faq->id) }}" class="btn btn-primary">Edit</a>

@@ -43,7 +43,7 @@ class FaqController extends Controller
         $faq = new Faq();
         $faq->faqcat_id = explode('|', $request->input('faqcat_id'))[0];
         $faq->question = ucfirst($request->input('question'));
-        $faq->faqcategory = explode('|', $request->input('faqcat_id'))[1];
+        // $faq->faqcategory = explode('|', $request->input('faqcat_id'))[1];
         $faq->answer = ucfirst($request->input('answer'));
         $faq->save();
         return redirect('/faq')->with('status', 'FAQ added successfully!');
@@ -85,7 +85,7 @@ class FaqController extends Controller
         $faqs = Faq::find($id);
         $faqs->faqcat_id = explode('|', $request->input('faqcat_id'))[0];
         $faqs->question = ucfirst($request->input('question'));
-        $faqs->faqcategory = explode('|', $request->input('faqcat_id'))[1];
+        // $faqs->faqcategory = explode('|', $request->input('faqcat_id'))[1];
         $faqs->answer = ucfirst($request->input('answer'));
         $faqs->update();
         return redirect('/faq')->with('status', 'FAQ updated successfully!');

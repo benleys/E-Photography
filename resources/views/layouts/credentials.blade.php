@@ -16,6 +16,8 @@
     <link href="{{ asset('frontend/css/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/credstyle.css') }}" rel="stylesheet">
 
+    <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}">
+    
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
