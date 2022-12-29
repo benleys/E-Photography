@@ -11,7 +11,7 @@ Contact Message - {{ $messages->userKey->name }} - Luc Leys
 
     <div class="card">
         <div class="card-header">
-            <h1>Contact Message From <a href="#">{{ $messages->userKey->name }}</a></h1>
+            <h1>Contact Message From <a href="{{ url('/public-profile/'.$messages->userKey->id) }}">{{ $messages->userKey->name }}</a></h1>
         </div>
         <div class="card-body">
             <form action="{{ url('updated-contactmessage/'.$messages->id) }}" method="post" enctype="multipart/form-data">

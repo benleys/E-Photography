@@ -44,6 +44,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/my-profile', [FrontUserController::class, 'myprofile'])->name('my-profile');
 Route::post('/update-my-profile', [FrontUserController::class, 'update'])->name('update-my-profile');
+Route::get('/public-profile/{id}', [FrontUserController::class, 'publicprofile'])->name('publicprofile');
 
 //Route::get('/portfolio', [FrontUserController::class, 'portfolio'])->name('portfolio');
 Route::get('/aboutme', [FrontendController::class, 'aboutme'])->name('aboutme');

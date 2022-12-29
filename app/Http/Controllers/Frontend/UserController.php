@@ -21,6 +21,11 @@ class UserController extends Controller
         return view('frontend.user.profile');
     }
 
+    public function publicprofile($id){
+        $profiles = User::find($id);
+        return view('frontend.user.publicprofile', compact('profiles'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
