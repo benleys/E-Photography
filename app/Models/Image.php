@@ -21,6 +21,7 @@ class Image extends Model
         'title',
         'image',
         'description',
+        'price',
         'spotlight',
     ];
 

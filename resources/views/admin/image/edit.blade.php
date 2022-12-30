@@ -19,6 +19,12 @@
                     <input type="text" value="{{ $images->title }}" class="form-control" name='title'>
                 </div>
 
+                <!-- Price -->
+                <div class="col-md-12 mt-3">
+                    <label for="price">Price</label>
+                    <input type="text" value="{{ $images->price }}" class="form-control" name='price'>
+                </div>
+
                 <!-- Image Upload -->
                 <div class="col-md-12 mt-3">
                 <label class="font-weight-bold">Image</label>

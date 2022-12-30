@@ -23,7 +23,7 @@
                             @endif
                         </p>
                         <hr>
-                        <label class="fw-bold">Selling Price: €{{ $images->price }}</label>
+                        <label class="fw-bold">Selling Price: € {{ $images->price }}</label>
                         <div class="row mt-2">
                             <div class="col-md-3">
                                 <input type="hidden" value="{{ $images->id }}" class="image_id">

@@ -14,12 +14,15 @@
             @if ($cartItems->count() > 0)
                 @foreach ($cartItems as $cartItem)
                 <div class="row text-center">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <img src="{{ asset('assets/uploads/image/'.$cartItem->imagesKey->image) }}" height="150px" width="140px" alt="Image Here">
                     </div>
-                    <div class="col-md-5 mt-5">
+                    <div class="col-md-3 mt-5">
                         <h3>{{ $cartItem->imagesKey->title }}</h3>
                         <h6>{{ $cartItem->imagesKey->description }}</h6>
+                    </div>
+                    <div class="col-md-3 mt-5">
+                        <h3>€ {{ $cartItem->imagesKey->price }}</h3>
                     </div>
                     <div class="col-md-3 mt-5">
                         <input type="hidden" value="{{ $cartItem->image_id }}" class="image_id">

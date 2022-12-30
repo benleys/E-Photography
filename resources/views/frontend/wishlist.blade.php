@@ -17,9 +17,12 @@
                     <div class="col-md-2">
                         <img src="{{ asset('assets/uploads/image/'.$wishlistItem->imagesKey->image) }}" height="150px" width="140px" alt="Image Here">
                     </div>
-                    <div class="col-md-5 mt-5">
+                    <div class="col-md-3 mt-5">
                         <h3>{{ $wishlistItem->imagesKey->title }}</h3>
                         <h6>{{ $wishlistItem->imagesKey->description }}</h6>
+                    </div>
+                    <div class="col-md-3 mt-5">
+                        <h3>€ {{ $wishlistItem->imagesKey->price }}</h3>
                     </div>
                     <div class="col-md-3 mt-5">
                         <input type="hidden" value="{{ $wishlistItem->image_id }}" class="image_id">

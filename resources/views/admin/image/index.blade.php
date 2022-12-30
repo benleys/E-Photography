@@ -19,8 +19,8 @@
                     <tr>
                         <th>Id</th>
                         <th>Category</th>
-                        <th>Title</th>
                         <th>Image</th>
+                        <th>Title</th>
                         <th>Description</th>
                         <th>Spotlight</th>
                         <th>Action</th>
@@ -31,10 +31,10 @@
                         <tr>
                             <td>{{ $image->id }}</td>
                             <td>{{ $image->categoryKey->name }}</td>
-                            <td>{{ $image->title }}</td>
                             <td>
                                 <img src="{{ asset('assets/uploads/image/'.$image->image) }}" class="img-responsive" style="max-width:200px;  width:100%;" alt="Image placed here">
                             </td>
+                            <td>{{ $image->title }}</td>
                             <td>{{ $image->description }}</td>
 
                             @if ( $image->spotlight == '1')
