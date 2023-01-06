@@ -32,7 +32,8 @@ $(document).ready(function (){
     $('.removeFromCartBtn').click(function (e) { 
         e.preventDefault();
         
-        var image_id = $(this).closest('.image_data').find('.image_id').val();
+        var image_id = $(this).closest('.image_data').find('.image_id')[1];
+        console.log(image_id);
         
         $.ajaxSetup({
             headers: {

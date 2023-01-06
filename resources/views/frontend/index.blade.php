@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include('layouts.partials.frontslider')
+@include('layouts.partials.frontslider')
 
     <h1 class="mt-3" style="text-align: center;">Spotlight</h1>
     <hr>
