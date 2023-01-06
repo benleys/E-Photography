@@ -50,13 +50,13 @@
          <i class="bi bi-person-check"></i> 
          <span>Users</span> 
       </a>
-   </li>
+   {{-- </li>
       <li class="nav-item"> 
       <a class="nav-link {{ Request::is('add-user') ? '':'collapsed' }}" href="{{ route('add-user') }}"> 
          <i class="bi bi-person-plus-fill"></i> 
          <span>Add User</span> 
       </a>
-   </li>
+   </li> --}}
 
    <!-- FAQ -->
    <li class="nav-heading">FAQ</li>

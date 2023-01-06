@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('cat_id');
             $table->string('title');
             $table->string('image')->nullable();
-            $table->int('price');
+            $table->bigInteger('price');
             $table->longtext('description');
             $table->tinyInteger('spotlight')->default('0');
             $table->timestamps();
