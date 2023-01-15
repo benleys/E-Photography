@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->string('subject');
             $table->longtext('message');
-            $table->longtext('answer');
+            $table->longtext('answer')->nullable();
             $table->tinyInteger('published')->default('0');
             $table->timestamps();
         });

@@ -22,10 +22,14 @@
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">FAQ Category</label>
                     <select name="faqcat_id" class="form-select">
-                        <option selected disabled>Select a FAQ Category</option>
-                        @foreach ($faqcategories as $faqcategory)
-                            <option value="{{ $faqcategory->id }}|{{ $faqcategory->name }}">{{ $faqcategory->name }}</option>
-                        @endforeach
+                        @if ($faqcategories->isNotEmpty())
+                            <option selected disabled>Select a FAQ Category</option>
+                            @foreach ($faqcategories as $faqcategory)
+                                <option value="{{ $faqcategory->id }}|{{ $faqcategory->name }}">{{ $faqcategory->name }}</option>
+                            @endforeach
+                        @else
+                            <option selected disabled style="color: red">Create a FAQ-category first</option>
+                        @endif
                     </select>
                 </div>
 

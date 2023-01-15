@@ -22,7 +22,7 @@
                 <!-- Price -->
                 <div class="col-md-12 mt-3">
                     <label for="price">Price</label>
-                    <input type="text" value="{{ $images->price }}" class="form-control" name='price'>
+                    <input type="number" value="{{ $images->price }}" class="form-control" name='price'>
                 </div>
 
                 <!-- Image Upload -->

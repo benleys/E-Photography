@@ -7,7 +7,7 @@
 @section('content')
     <h1 class="mt-3" style="text-align: center;">All Categories</h1>
     <hr>
-
+    @if ($categories->first())
     <!-- All Categories -->
     <div class="py-2">
         <div class="container">
@@ -29,13 +29,15 @@
             </div>
         </div>
     </div>
-
+    @else 
+        <h2 class="text-center" style="margin: 30px">No categories</h2>
+    @endif
 
 
     <!-- All Images -->
     <h1 class="mt-3" style="text-align: center;">Portfolio</h1>
     <hr>
-
+    @if ($images->first())
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -49,4 +51,7 @@
             </div>
         </div>
     </div>
+    @else 
+        <h2 class="text-center" style="margin: 30px">No images</h2>
+    @endif
 @endsection

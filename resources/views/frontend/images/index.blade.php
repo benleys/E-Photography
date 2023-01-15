@@ -7,7 +7,7 @@
 @section('content')
     <h1 class="mt-3" style="text-align: center;">{{ $category->name }}</h1>
     <hr>
-
+    @if ($images->isNotEmpty())
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -26,4 +26,7 @@
             </div>
         </div>
     </div>
+    @else 
+        <h2 class="text-center" style="margin: 30px">No images</h2>
+    @endif
 @endsection

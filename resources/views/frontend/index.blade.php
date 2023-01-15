@@ -9,7 +9,7 @@
 
     <h1 class="mt-3" style="text-align: center;">Spotlight</h1>
     <hr>
-
+    @if ($spotlight_images->isNotEmpty())
     <!-- Spotlight -->
     <div class="py-5">
         <div class="container">
@@ -29,6 +29,9 @@
             </div>
         </div>
     </div>
+    @else 
+        <h2 class="text-center" style="margin: 30px">No spotlight images</h2>
+    @endif
 
 
     <!-- What People Say -->

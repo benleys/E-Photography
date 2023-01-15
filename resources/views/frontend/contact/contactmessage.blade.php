@@ -54,6 +54,7 @@ Contact Message - {{ $messages->userKey->name }} - Luc Leys
                     <!-- Update button -->
                     <div class="col-md-12 mt-3">
                         <button type="submit" class="btn btn-outline-primary">Update Message</button>
+                        <a href="{{ url('delete-message-guest/'.$messages->id) }}" class="btn btn-danger">Delete Message</a>
                     </div>
                 @else
                     <!-- Subject -->
@@ -107,7 +108,7 @@ Contact Message - {{ $messages->userKey->name }} - Luc Leys
                         <input type="text" value="{{ $messages->message }}" class="form-control" name='message' disabled>
                     </div>
 
-                        <!-- Answer -->
+                    <!-- Answer -->
                     @if (empty($messages->answer))
                         <div class="col-md-12 mt-3">
                             <label class="font-weight-bold">Answer</label>

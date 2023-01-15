@@ -161,6 +161,8 @@ class FrontendController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $messages = Contact::find($id);
+        $messages->delete();
+        return redirect('/contact')->with('status', 'Message deleted successfully!');
     }
 }

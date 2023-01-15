@@ -21,7 +21,7 @@
                 <!-- Price -->
                 <div class="col-md-12 mt-3">
                     <label for="price">Price</label>
-                    <input type="text" class="form-control" name='price'>
+                    <input type="number" class="form-control" name='price'>
                 </div>
 
                 <!-- Image Upload -->
@@ -34,10 +34,14 @@
                 <div class="col-md-12 mt-3">
                     <label class="font-weight-bold">Category</label>
                     <select name="cat_id" class="form-select">
-                        <option selected disabled>Select a Category</option>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
-                        @endforeach
+                        @if ($categories->isNotEmpty())
+                            <option selected disabled>Select a Category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}|{{ $category->name }}">{{ $category->name }}</option>
+                            @endforeach
+                        @else
+                            <option selected disabled style="color: red">Create a category first</option>
+                        @endif
                     </select>
                 </div>
 

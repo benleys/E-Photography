@@ -39,7 +39,7 @@
                             @if ( $user->user_type == '1')
                                 <td>Admin</td>
                             @else
-                                <td>User</td>
+                                <td>Guest</td>
                             @endif
                             <td>
                                 <a href="{{ url('edit-user/'.$user->id) }}" class="btn btn-primary">Edit</a>

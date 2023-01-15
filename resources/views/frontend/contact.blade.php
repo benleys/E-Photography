@@ -58,17 +58,19 @@
                 @auth
                     <!-- Hidden user_id -->
                     <input hidden type="text" value="{{ Auth::user()->id }}" class="form-control" name='user_id'>
+                    <input hidden type="text" value="{{ Auth::user()->name }}" class="form-control" name='name'>
+                    <input hidden type="text" value="{{ Auth::user()->email }}" class="form-control" name='email'>
                     
                     <!-- Name -->
                     <div class="col-md-12 mt-3">
                         <label for="name">Your Name</label>
-                        <input type="text" value="{{ Auth::user()->name }}" class="form-control" name='name'>
+                        <input type="text" value="{{ Auth::user()->name }}" class="form-control" disabled>
                     </div>
 
                     <!-- Email -->
                     <div class="col-md-12 mt-3">
                         <label for="email">Your Email</label>
-                        <input type="text" value="{{ Auth::user()->email }}" class="form-control" name='email'>
+                        <input type="text" value="{{ Auth::user()->email }}" class="form-control" disabled>
                     </div>
 
                     <!-- Subject -->
@@ -142,7 +144,7 @@
     <h1 class="mt-3" style="text-align: center;">My Contact Forum</h1>
     <p style="text-align: center;">Here you see all private messages</p>
     <hr>
-    
+    @if ($messages->first())
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -168,12 +170,15 @@
             </div>
         </div>
     </div>
+    @else 
+        <h2 class="text-center" style="margin: 30px">No messages</h2>
+    @endif
     @endauth
     
     <h1 class="mt-3" style="text-align: center;">Contact Forum</h1>
     <p style="text-align: center;">Here you see all public messages</p>
     <hr>
-    
+    @if ($messages->first())
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -199,4 +204,7 @@
             </div>
         </div>
     </div>
+    @else 
+        <h2 class="text-center" style="margin: 30px">No public messages</h2>
+    @endif
 @endsection

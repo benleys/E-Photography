@@ -53,6 +53,7 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/insert-contactmessage', [FrontendController::class, 'insertContactMessage'])->name('insert-contactmessage');
 Route::get('/contactmessage/{id}', [FrontendController::class, 'contactmessage'])->name('contactmessage');
 Route::put('/updated-contactmessage/{id}', [FrontendController::class, 'updateContactMessage']);
+Route::get('/delete-message-guest/{id}', [FrontendController::class, 'destroy']);
 
 Route::get('/faq-q&a', [FrontendController::class, 'faqs'])->name('faq-q&a');
 
