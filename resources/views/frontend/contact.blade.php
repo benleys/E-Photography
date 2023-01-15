@@ -178,7 +178,7 @@
     <h1 class="mt-3" style="text-align: center;">Contact Forum</h1>
     <p style="text-align: center;">Here you see all public messages</p>
     <hr>
-    @if ($messages->first())
+    @if ($publicMessages->isNotEmpty())
     <div class="py-5">
         <div class="container">
             <div class="row">

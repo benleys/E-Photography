@@ -60,7 +60,8 @@ class FrontendController extends Controller
     public function contact()
     {
         $messages = Contact::all();
-        return view('frontend.contact', compact('messages'));
+        $publicMessages = Contact::where('published', '1')->get();
+        return view('frontend.contact', compact('messages', 'publicMessages'));
     }
 
     public function insertContactMessage(Request $request)
@@ -102,67 +103,23 @@ class FrontendController extends Controller
         return redirect('/contact')->with('status', 'Message successfully updated!');
     }
 
-    public function faqs()
-    {
-        $faqs = Faq::all();
-        $faqcategories = FaqCategory::all();
-        return view('frontend.faq', compact('faqs', 'faqcategories'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
+        /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteContactMessage($id)
     {
         $messages = Contact::find($id);
         $messages->delete();
         return redirect('/contact')->with('status', 'Message deleted successfully!');
+    }
+
+    public function faqs()
+    {
+        $faqs = Faq::all();
+        $faqcategories = FaqCategory::all();
+        return view('frontend.faq', compact('faqs', 'faqcategories'));
     }
 }
